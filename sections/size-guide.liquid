@@ -23,6 +23,8 @@
            data-aos="fade-up"
            data-aos-delay="300">
         <img src="{{ section.settings.chart_image | asset_url }}"
+             height=""
+             width=""
              alt="{{ section.settings.chart_alt }}" />
       </div>
     </div>
@@ -40,10 +42,9 @@
       "default": "Step-by-Step Sizing Guide"
     },
     {
-      "type": "text",
+      "type": "image_picker",
       "id": "chart_image",
-      "label": "Chart Image",
-      "default": "zugu__ring-chart.svg"
+      "label": "Chart Image"
     },
     {
       "type": "text",
@@ -54,8 +55,8 @@
   ],
   "blocks": [
     {
-      "type": "step",
-      "name": "Step",
+      "type": "ring_size_step",
+      "name": "Ring Size Step",
       "settings": [
         {
           "type": "text",
@@ -64,75 +65,10 @@
           "default": "Step 1: Measure Your Finger"
         },
         {
-          "type": "list",
+          "type": "textarea",
           "id": "step_details",
           "label": "Step Details",
-          "default": [
-            "Wrap the paper around the base of your intended finger (typically your index, middle, or ring finger). Make sure the paper feels snug but not tight—the way you would want your ring to fit.",
-            "Pull the paper up toward the knuckle and back down to ensure the measurement accounts for any wider parts of your finger."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "step",
-      "name": "Step",
-      "settings": [
-        {
-          "type": "text",
-          "id": "step_title",
-          "label": "Step Title",
-          "default": "Step 2: Mark and Measure"
-        },
-        {
-          "type": "list",
-          "id": "step_details",
-          "label": "Step Details",
-          "default": [
-            "Use a pen or marker to mark where the paper overlaps with itself to create a complete circle.",
-            "Lay the paper flat on a ruler and measure the length in millimeters (mm) from the starting point to the mark."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "step",
-      "name": "Step",
-      "settings": [
-        {
-          "type": "text",
-          "id": "step_title",
-          "label": "Step Title",
-          "default": "Step 3: Match to the Ring Sizing Chart"
-        },
-        {
-          "type": "list",
-          "id": "step_details",
-          "label": "Step Details",
-          "default": [
-            "Choose the ring size that’s closest to your measurement and a little bigger.",
-            "A proper fit will stay secure on your finger but slide off with ease when necessary."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "step",
-      "name": "Step",
-      "settings": [
-        {
-          "type": "text",
-          "id": "step_title",
-          "label": "Step Title",
-          "default": "Step 4: Send us your order!"
-        },
-        {
-          "type": "list",
-          "id": "step_details",
-          "label": "Step Details",
-          "default": [
-            "Selecting the correct size ensures your In Case of Death Ring fits comfortably while performing its advanced functions."
-          ]
+          "default": "Wrap the paper around the base of your intended finger (typically your index, middle, or ring finger). Make sure the paper feels snug but not tight—the way you would want your ring to fit."
         }
       ]
     }

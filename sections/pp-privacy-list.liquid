@@ -3,17 +3,17 @@
 {% endcomment %}
 
 <div class="privacy-policy">
-    <div class="container-limited --flex-column">
-        <div class="privacy-policy__content --flex-column">
-            <h1 class="--all-caps"
-                data-aos="fade-up"
-                data-aos-delay="100">{{ section.settings.heading }}</h1>
-            {% for paragraph in section.blocks %}
-                <p data-aos="fade-up"
-                   data-aos-delay="200">{{ paragraph.settings.text }}</p>
-            {% endfor %}
-        </div>
+  <div class="container-limited --flex-column">
+    <div class="privacy-policy__content --flex-column">
+      <h1 class="--all-caps"
+          data-aos="fade-up"
+          data-aos-delay="100">{{ section.settings.heading }}</h1>
+      {% for paragraph in section.blocks %}
+        <p data-aos="fade-up"
+           data-aos-delay="200">{{ paragraph.settings.text }}</p>
+      {% endfor %}
     </div>
+  </div>
 </div>
 
 {% schema %}
@@ -29,206 +29,14 @@
   ],
   "blocks": [
     {
-      "type": "paragraph",
-      "name": "Paragraph",
+      "type": "privacy_policy_paragraph",
+      "name": "Privacy Policy Paragraph",
       "settings": [
         {
           "type": "textarea",
           "id": "text",
           "label": "Paragraph Text",
           "default": "Introduction"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "We value your privacy and are committed to protecting how your personal information is handled. This Privacy Policy outlines how we safeguard your privacy as a user (“you,” “your,” “user(s)”) when you use the Zugu Ring and Zugu application, along with any other websites, mobile or digital applications, or services we may offer that link to this Privacy Policy (collectively referred to as the “Platform”). The Privacy Policy details the types of information we collect and monitor when you use our Platform, as well as how this information is used and shared."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Your Consent"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "By accessing or using the Zugu application, including downloading the mobile app, you consent to the collection, use, and disclosure of your personal information as described in this Privacy Policy, or as otherwise required or permitted by applicable law."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Scope of this Privacy Policy"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "This Privacy Policy addresses the collection of personally identifiable information (\"personal information\") when you access or use the Zugu Ring and Zugu application. It does not apply to the policies or practices of companies we do not own or control, or to individuals we do not employ."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Personal information refers to details that identify, relate to, describe, or can reasonably be linked to you, either on its own or combined with other information we have. Examples of personal information include your name, contact details, and any information you provide when creating an account or profile on our application."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "We do not knowingly collect or solicit personal information from individuals under the age of 18, nor do we allow such persons to register for our products or services, including personalized features, product delivery, or feedback on activities within the application."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Information That Is Collected Through Our Application"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "We collect the personal information you voluntarily provide when you use our application."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Upon Sign-Up: When you create a user profile on our Platform, we gather your name, age, gender, email address, and any other relevant information you provide. You may also choose to share additional details such as payment information, location data, or other information relevant to our services and products."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "While Using Our Application: As you download and use our mobile application, we may collect information about your mobile device (including device and application identifiers), the referring web page, pages visited, IP address, and location (depending on the permissions you have granted). When we collect usage data from the application, it is used only in aggregate form and not in a way that identifies you personally."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Use of Our Smart Ring: If you use the Zugu Ring, you acknowledge that any information, data, or readings from the Zugu Ring will be automatically uploaded to your user account with us. This data may include heart rate, device identifiers, and location data (depending on permissions granted). If these automatically collected readings can identify you personally, they are considered personal information under this Privacy Policy."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Social Media Integration"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "The Zugu Ring application has integrated social features (e.g., sharing specific content to social media), and we will only share content according to your preferences and upon triggering designated conditions, such as emergency notifications or pre-set permissions."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "How We Use Your Information"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "name": "Paragraph",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Paragraph Text",
-          "default": "Data collected from the Zugu Ring is uploaded to your user account on the Zugu application and is used in aggregate to provide product features and improve the user experience. Personal information is used solely for the intended purposes of the Zugu Ring and application experience."
         }
       ]
     }

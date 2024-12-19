@@ -45,7 +45,9 @@
                     <div class="accordion__content">
                         <ul>
                             {% for item in section.blocks %}
-                                <li>{{ item.settings.item_text }}</li>
+                                {% if item.type == 'kit_item' %}
+                                    <li>{{ item.settings.item_text }}</li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                         <span>{{ section.settings.accordion_note }}</span>
@@ -65,12 +67,16 @@
              id="js-simple-slider"
              data-aos="fade-in"
              data-aos-delay="50">
-            {% for slide in section.settings.slider_images %}
-                <div class="slider__slide {% if forloop.first %}--current{% endif %}">
-                    <img src="{{ slide.image | asset_url }}"
-                         class="product-showcase__image"
-                         alt="{{ slide.alt }}" />
-                </div>
+            {% for block in section.blocks %}
+                {% if block.type == 'product_showcase_slide' %}
+                    <div class="slider__slide {% if forloop.first %}--current{% endif %}">
+                        <img src="{{ block.settings.product_slide_image | asset_url }}"
+                             height=""
+                             width=""
+                             class="product-showcase__image"
+                             alt="{{ block.settings.slide_alt }}" />
+                    </div>
+                {% endif %}
             {% endfor %}
             <div class="slider__arrow --left">
                 <button title="{{ section.settings.slider_arrow_left_title }}">
@@ -97,9 +103,11 @@
             <div class="slider__pagination"
                  data-aos="fade-up"
                  data-aos-delay="150">
-                {% for slide in section.settings.slider_images %}
-                    <button class="slider__pagination-dot {% if forloop.first %}--current{% endif %}"
-                            title="{{ section.settings.slider_pagination_title }} {{ forloop.index }}"></button>
+                {% for block in section.blocks %}
+                    {% if block.type == 'product_showcase_slide' %}
+                        <button class="slider__pagination-dot {% if forloop.first %}--current{% endif %}"
+                                title="{{ section.settings.slider_pagination_title }} {{ forloop.index }}"></button>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -144,7 +152,7 @@
       "type": "url",
       "id": "ring_guide_link",
       "label": "Ring Guide Link",
-      "default": "#"
+      "default": "/"
     },
     {
       "type": "text",
@@ -162,7 +170,7 @@
       "type": "url",
       "id": "buy_now_link",
       "label": "Buy Now Link",
-      "default": "#0"
+      "default": "/"
     },
     {
       "type": "text",
@@ -198,7 +206,7 @@
       "type": "url",
       "id": "footnote_link",
       "label": "Footnote Link",
-      "default": "#0"
+      "default": "/"
     },
     {
       "type": "text",
@@ -211,29 +219,6 @@
       "id": "footnote_title",
       "label": "Footnote Title",
       "default": "Explore THE UPCOMING 360 Case"
-    },
-    {
-      "type": "list",
-      "id": "slider_images",
-      "label": "Slider Images",
-      "default": [
-        {
-          "image": "zugu__slider-s1.webp",
-          "alt": "Slide 1 Visual"
-        },
-        {
-          "image": "zugu__slider-s2.webp",
-          "alt": "Slide 2 Visual"
-        },
-        {
-          "image": "zugu__slider-s3.webp",
-          "alt": "Slide 3 Visual"
-        },
-        {
-          "image": "zugu__slider-s4.webp",
-          "alt": "Slide 4 Visual"
-        }
-      ]
     },
     {
       "type": "text",
@@ -255,6 +240,23 @@
     }
   ],
   "blocks": [
+    {
+      "type": "product_showcase_slide",
+      "name": "Product Showcase Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_slide_image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "slide_alt",
+          "label": "Slide Alt Text",
+          "default": "Slide 1 Visual"
+        }
+      ]
+    },
     {
       "type": "kit_item",
       "name": "Kit Item",

@@ -3,18 +3,18 @@
 {% endcomment %}
 
 <div class="footer">
-    <div class="container-limited --flex-column">
-        <nav class="footer__links --all-caps"
-             data-aos="fade-up"
-             data-aos-delay="300"
-             data-aos-offset="-200">
-            {% for link in section.blocks %}
-                <a href="{{ link.settings.link_url }}"
-                   class="footer__link"
-                   title="{{ link.settings.link_title }}">{{ link.settings.link_text }}</a>
-            {% endfor %}
-        </nav>
-    </div>
+  <div class="container-limited --flex-column">
+    <nav class="footer__links --all-caps"
+         data-aos="fade-up"
+         data-aos-delay="300"
+         data-aos-offset="-200">
+      {% for link in section.blocks %}
+        <a href="{{ link.settings.link_url }}"
+           class="footer__link"
+           title="{{ link.settings.link_title }}">{{ link.settings.link_text }}</a>
+      {% endfor %}
+    </nav>
+  </div>
 </div>
 
 {% schema %}
@@ -23,14 +23,14 @@
   "settings": [],
   "blocks": [
     {
-      "type": "footer_link",
-      "name": "Footer Link",
+      "type": "footer_link_1",
+      "name": "Footer Link 1",
       "settings": [
         {
           "type": "url",
           "id": "link_url",
           "label": "Link URL",
-          "default": "#0"
+          "default": "/"
         },
         {
           "type": "text",
@@ -47,14 +47,14 @@
       ]
     },
     {
-      "type": "footer_link",
-      "name": "Footer Link",
+      "type": "footer_link_2",
+      "name": "Footer Link 2",
       "settings": [
         {
           "type": "url",
           "id": "link_url",
           "label": "Link URL",
-          "default": "#0"
+          "default": "/"
         },
         {
           "type": "text",
@@ -71,14 +71,14 @@
       ]
     },
     {
-      "type": "footer_link",
-      "name": "Footer Link",
+      "type": "footer_link_3",
+      "name": "Footer Link 3",
       "settings": [
         {
           "type": "url",
           "id": "link_url",
           "label": "Link URL",
-          "default": "#0"
+          "default": "/"
         },
         {
           "type": "text",
@@ -95,14 +95,14 @@
       ]
     },
     {
-      "type": "footer_link",
-      "name": "Footer Link",
+      "type": "footer_link_4",
+      "name": "Footer Link 4",
       "settings": [
         {
           "type": "url",
           "id": "link_url",
           "label": "Link URL",
-          "default": "#0"
+          "default": "/"
         },
         {
           "type": "text",

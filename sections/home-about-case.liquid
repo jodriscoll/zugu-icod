@@ -22,6 +22,8 @@
                data-aos-delay="250">{{ feature.settings.feature_text }}</p>
           </div>
           <img src="{{ feature.settings.feature_image | asset_url }}"
+               height=""
+               width=""
                class="about-case__feature-image"
                alt="{{ feature.settings.image_alt }}"
                data-aos="fade-left"
@@ -87,7 +89,7 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link",
-      "default": "#0"
+      "default": "/"
     },
     {
       "type": "text",
@@ -105,7 +107,7 @@
       "type": "url",
       "id": "footnote_link",
       "label": "Footnote Link",
-      "default": "#0"
+      "default": "/"
     },
     {
       "type": "text",
@@ -140,8 +142,7 @@
         {
           "type": "image_picker",
           "id": "feature_image",
-          "label": "Feature Image",
-          "default": "zugu__about-1.webp"
+          "label": "Feature Image"
         },
         {
           "type": "text",

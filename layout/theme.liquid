@@ -2,23 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="stylesheet" href="{{ 'styles.min.css' | asset_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {% if settings.favicon_enable %}
+        <link rel="shortcut icon" href="{{ 'favicon.webp' | asset_url }}" type="image/png">
+    {% endif %}
+    <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap">
     <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.3.1/dist/aos.css">
-    <script src="https://cdn.jsdelivr.net/gh/michalsnik/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://player.vimeo.com/api/player.js"></script>
-    <script src="{{ 'scripts.min.js' | asset_url }}"></script>
 
-    {% if settings.favicon_enable %}
-        <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png">
-    {% endif %}
-    <link rel="alternate" href="https://www.zugucase.com/" hreflang="en" />
-
-    {% include 'social-meta-tags' %}
-
-    {% comment %} Global site tag (gtag.js) - Google Ads {% endcomment %}
     {% if settings.google_ads_id %}
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.google_ads_id }}"></script>
         <script>
@@ -28,17 +19,17 @@
             gtag('config', '{{ settings.google_ads_id }}');
         </script>
     {% endif %}
+    {{ content_for_header }}
 </head>
 <body>
-    {% comment %} Google Tag Manager (noscript) {% endcomment %}
-    {% if settings.google_tag_manager_id %}
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id={{ settings.google_tag_manager_id }}"
-                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        </noscript>
-    {% endif %}
-    {% comment %} End Google Tag Manager (noscript) {% endcomment %}
+{% if settings.google_tag_manager_id %}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ settings.google_tag_manager_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+{% endif %}
 
-    {{ content_for_layout }}
+{{ content_for_layout }}
+
+<script src="https://cdn.jsdelivr.net/gh/michalsnik/aos@2.3.1/dist/aos.js" defer></script>
+<script src="https://player.vimeo.com/api/player.js" defer></script>
+<script src="{{ 'scripts.js' | asset_url }}" defer></script>
 </body>
 </html>

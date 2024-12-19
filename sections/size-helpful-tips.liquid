@@ -5,11 +5,15 @@
 <div class="helpful-tips --flex-column">
   <div class="backgrounds__container">
     <img src="{{ section.settings.bg_image_top | asset_url }}"
+         height=""
+         width=""
          class="backgrounds__bg-right"
          data-aos="fade-left"
          data-aos-delay="300"
          alt="{{ section.settings.bg_image_top_alt }}" />
     <img src="{{ section.settings.bg_image_bottom | asset_url }}"
+         height=""
+         width=""
          class="backgrounds__bg-left"
          data-aos="fade-right"
          data-aos-delay="300"
@@ -41,8 +45,7 @@
     {
       "type": "image_picker",
       "id": "bg_image_top",
-      "label": "Top Background Image",
-      "default": "zugu__contact-bg-top-left.webp"
+      "label": "Top Background Image"
     },
     {
       "type": "text",
@@ -53,8 +56,7 @@
     {
       "type": "image_picker",
       "id": "bg_image_bottom",
-      "label": "Bottom Background Image",
-      "default": "zugu__contact-bg-bottom-left.webp"
+      "label": "Bottom Background Image"
     },
     {
       "type": "text",
@@ -101,38 +103,14 @@
   ],
   "blocks": [
     {
-      "type": "tip",
-      "name": "Tip",
+      "type": "helpful_tips_tip",
+      "name": "Helpful Tips - Tip",
       "settings": [
         {
           "type": "textarea",
           "id": "tip_text",
           "label": "Tip Text",
           "default": "Measure More Than Once: Your fingers may change size slightly depending on the time of day or temperature. Measure multiple times for accuracy."
-        }
-      ]
-    },
-    {
-      "type": "tip",
-      "name": "Tip",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "tip_text",
-          "label": "Tip Text",
-          "default": "Consider Dominance: Your dominant hand tends to be slightly larger, so account for this when measuring."
-        }
-      ]
-    },
-    {
-      "type": "tip",
-      "name": "Tip",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "tip_text",
-          "label": "Tip Text",
-          "default": "Multiple Fingers: Try measuring your index, middle, and ring fingers. If you get slightly different results, use the average or opt for the larger size for comfort."
         }
       ]
     }

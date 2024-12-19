@@ -3,19 +3,19 @@
 {% endcomment %}
 
 <div class="the-rules --flex-column">
-    <div class="container-limited --flex-column">
-        <div class="the-rules__content --flex-column" data-aos="fade-up">
-            <h1 class="--all-caps"
-                data-aos="fade-up"
-                data-aos-delay="100">{{ section.settings.heading }}</h1>
-            <ol>
-                {% for rule in section.blocks %}
-                    <li data-aos="fade-up"
-                        data-aos-delay="200">{{ rule.settings.rule_text }}</li>
-                {% endfor %}
-            </ol>
-        </div>
+  <div class="container-limited --flex-column">
+    <div class="the-rules__content --flex-column" data-aos="fade-up">
+      <h1 class="--all-caps"
+          data-aos="fade-up"
+          data-aos-delay="100">{{ section.settings.heading }}</h1>
+      <ol>
+        {% for rule in section.blocks %}
+          <li data-aos="fade-up"
+              data-aos-delay="200">{{ rule.settings.rule_text }}</li>
+        {% endfor %}
+      </ol>
     </div>
+  </div>
 </div>
 
 {% schema %}
@@ -31,74 +31,14 @@
   ],
   "blocks": [
     {
-      "type": "rule",
-      "name": "Rule",
+      "type": "giveaway_rule",
+      "name": "Giveaway Rule",
       "settings": [
         {
           "type": "textarea",
           "id": "rule_text",
           "label": "Rule Text",
           "default": "Eligibility: Open to legal residents of the United States and Canada (excluding Quebec), 18 or older. Canadian winners will be required to answer a skill-testing question to claim their prize. Void where prohibited or restricted by law."
-        }
-      ]
-    },
-    {
-      "type": "rule",
-      "name": "Rule",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "rule_text",
-          "label": "Rule Text",
-          "default": "How to Enter: Follow @Zugu and @[Influencer] on Instagram, like this post, and tag a friend in the comments. Limit one entry per person."
-        }
-      ]
-    },
-    {
-      "type": "rule",
-      "name": "Rule",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "rule_text",
-          "label": "Rule Text",
-          "default": "Winner Selection: A random winner will be selected on [date] and notified via direct message. Canadian winners must answer a skill-testing question to claim the prize."
-        }
-      ]
-    },
-    {
-      "type": "rule",
-      "name": "Rule",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "rule_text",
-          "label": "Rule Text",
-          "default": "Prize: Zugu Ring and iPad kit (ARV: $1500). Zugu will cover shipping and applicable duties."
-        }
-      ]
-    },
-    {
-      "type": "rule",
-      "name": "Rule",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "rule_text",
-          "label": "Rule Text",
-          "default": "No Purchase Necessary."
-        }
-      ]
-    },
-    {
-      "type": "rule",
-      "name": "Rule",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "rule_text",
-          "label": "Rule Text",
-          "default": "Disclaimer: This promotion is not sponsored, endorsed, or administered by, or associated with Instagram, Facebook, TikTok or YouTube."
         }
       ]
     }
