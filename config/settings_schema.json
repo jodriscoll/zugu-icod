@@ -1,0 +1,30 @@
+[
+    {
+        "name": "General Settings",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "favicon_enable",
+                "label": "Enable Favicon",
+                "default": true
+            }
+        ]
+    },
+    {
+        "name": "Analytics Settings",
+        "settings": [
+            {
+                "type": "text",
+                "id": "google_tag_manager_id",
+                "label": "Google Tag Manager ID",
+                "default": "GTM-NMTXGB2"
+            },
+            {
+                "type": "text",
+                "id": "google_ads_id",
+                "label": "Google Ads ID",
+                "default": "AW-984977898"
+            }
+        ]
+    }
+]

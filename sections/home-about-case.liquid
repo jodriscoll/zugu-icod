@@ -1,0 +1,162 @@
+{% comment %}
+    Section: About The Case
+{% endcomment %}
+
+<div class="about-case" id="about">
+  <div class="container-limited --flex-column">
+    <div class="about-case__content">
+      <h2 class="--all-caps"
+          data-aos="fade-up"
+          data-aos-delay="100">{{ section.settings.heading }}</h2>
+      <p data-aos="fade-up"
+         data-aos-delay="200">{{ section.settings.subheading }}</p>
+    </div>
+    <div class="about-case__features">
+      {% for feature in section.blocks %}
+        <div class="about-case__feature --{{ forloop.index0 | plus: 1 | append: 'th' | replace: '1th', 'first' | replace: '2th', 'second' | replace: '3th', 'third' | replace: '4th', 'fourth' | replace: '5th', 'fifth' | replace: '6th', 'sixth' }}">
+          <div class="about-case__feature-content">
+            <h3 class="--all-caps"
+                data-aos="fade-right"
+                data-aos-delay="100">{{ feature.settings.feature_heading }}</h3>
+            <p data-aos="fade-right"
+               data-aos-delay="250">{{ feature.settings.feature_text }}</p>
+          </div>
+          <img src="{{ feature.settings.feature_image | asset_url }}"
+               class="about-case__feature-image"
+               alt="{{ feature.settings.image_alt }}"
+               data-aos="fade-left"
+               data-aos-offset="225"
+               data-aos-delay="300" />
+        </div>
+      {% endfor %}
+    </div>
+    <div class="about-case__bottom">
+      <h3 class="--all-caps"
+          data-aos="fade-up"
+          data-aos-delay="100">{{ section.settings.bottom_heading }}</h3>
+      <p data-aos="fade-up"
+         data-aos-delay="200">{{ section.settings.bottom_subheading }}</p>
+      <div class="about-case__buttons"
+           data-aos="fade-up"
+           data-aos-delay="300">
+        <a href="{{ section.settings.button_link }}"
+           class="button button--filled">{{ section.settings.button_text }}</a>
+      </div>
+
+      <div class="product-showcase__footnote"
+           data-aos="fade-up"
+           data-aos-delay="500">
+        <span class="--all-caps">{{ section.settings.footnote_heading }}</span>
+        <a href="{{ section.settings.footnote_link }}"
+           class="--all-caps"
+           title="{{ section.settings.footnote_title }}">{{ section.settings.footnote_text }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About The Case",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "COMING SOON:<br/>THE ZUGU 360 CASE"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The Zugu In Case of Death Case is a limited edition version of Zugu’s upcoming 360 case, our most versatile and advanced case ever."
+    },
+    {
+      "type": "text",
+      "id": "bottom_heading",
+      "label": "Bottom Heading",
+      "default": "The In Case of Death Case"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_subheading",
+      "label": "Bottom Subheading",
+      "default": "Bricks your iPad when you die, so you can take your secrets to the grave."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "#0"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Buy Now"
+    },
+    {
+      "type": "text",
+      "id": "footnote_heading",
+      "label": "Footnote Heading",
+      "default": "Not planning to die ANYTIME soon?"
+    },
+    {
+      "type": "url",
+      "id": "footnote_link",
+      "label": "Footnote Link",
+      "default": "#0"
+    },
+    {
+      "type": "text",
+      "id": "footnote_text",
+      "label": "Footnote Text",
+      "default": "Get notified about our upcoming 360 case"
+    },
+    {
+      "type": "text",
+      "id": "footnote_title",
+      "label": "Footnote Link Title",
+      "default": "Explore THE UPCOMING 360 Case"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_heading",
+          "label": "Feature Heading",
+          "default": "Wraparound<br/>Bumper Shell"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_text",
+          "label": "Feature Text",
+          "default": "For maximum protection at every angle."
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_image",
+          "label": "Feature Image",
+          "default": "zugu__about-1.webp"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "default": "Lorem Ipsum"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "About Section"
+    }
+  ]
+}
+{% endschema %}

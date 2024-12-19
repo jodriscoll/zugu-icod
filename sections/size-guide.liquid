@@ -1,0 +1,147 @@
+{% comment %}
+    Section: Ring Size Guide
+{% endcomment %}
+
+<div class="sizes-guide">
+  <div class="container-limited">
+    <div class="sizes-guide__content">
+      <h2 class="--all-caps"
+          data-aos="fade-up">{{ section.settings.heading }}</h2>
+      <div class="sizes-guide__steps">
+        {% for step in section.blocks %}
+          <div class="sizes-guide__step"
+               data-aos="fade-in"
+               data-aos-delay="300">
+            <p class="--all-caps">{{ step.settings.step_title }}</p>
+            {% for detail in step.settings.step_details %}
+              <p>{{ detail }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="sizes-guide__ring-guide"
+           data-aos="fade-up"
+           data-aos-delay="300">
+        <img src="{{ section.settings.chart_image | asset_url }}"
+             alt="{{ section.settings.chart_alt }}" />
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ring Size Guide",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Step-by-Step Sizing Guide"
+    },
+    {
+      "type": "text",
+      "id": "chart_image",
+      "label": "Chart Image",
+      "default": "zugu__ring-chart.svg"
+    },
+    {
+      "type": "text",
+      "id": "chart_alt",
+      "label": "Chart Image Alt Text",
+      "default": "Find your size"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Step 1: Measure Your Finger"
+        },
+        {
+          "type": "list",
+          "id": "step_details",
+          "label": "Step Details",
+          "default": [
+            "Wrap the paper around the base of your intended finger (typically your index, middle, or ring finger). Make sure the paper feels snug but not tight—the way you would want your ring to fit.",
+            "Pull the paper up toward the knuckle and back down to ensure the measurement accounts for any wider parts of your finger."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Step 2: Mark and Measure"
+        },
+        {
+          "type": "list",
+          "id": "step_details",
+          "label": "Step Details",
+          "default": [
+            "Use a pen or marker to mark where the paper overlaps with itself to create a complete circle.",
+            "Lay the paper flat on a ruler and measure the length in millimeters (mm) from the starting point to the mark."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Step 3: Match to the Ring Sizing Chart"
+        },
+        {
+          "type": "list",
+          "id": "step_details",
+          "label": "Step Details",
+          "default": [
+            "Choose the ring size that’s closest to your measurement and a little bigger.",
+            "A proper fit will stay secure on your finger but slide off with ease when necessary."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Step 4: Send us your order!"
+        },
+        {
+          "type": "list",
+          "id": "step_details",
+          "label": "Step Details",
+          "default": [
+            "Selecting the correct size ensures your In Case of Death Ring fits comfortably while performing its advanced functions."
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Guide"
+    }
+  ]
+}
+{% endschema %}

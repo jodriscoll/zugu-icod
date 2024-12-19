@@ -1,0 +1,278 @@
+{% comment %}
+    Section: Product Showcase
+{% endcomment %}
+
+<div class="product-showcase" id="showcase">
+    <div class="container-limited">
+        <div class="product-showcase__content">
+            <h2 class="--all-caps"
+                data-aos="fade-right"
+                data-aos-delay="200">{{ section.settings.heading }}</h2>
+            <p data-aos="fade-right"
+               data-aos-delay="300">{{ section.settings.description }}</p>
+            <p class="product-showcase__price"
+               data-aos="fade-right"
+               data-aos-delay="200">{{ section.settings.price }}</p>
+            <p class="product-showcase__color"
+               data-aos="fade-right"
+               data-aos-delay="300">{{ section.settings.color_label }} {{ section.settings.color }}</p>
+            <div class="product-showcase__ring-guide"
+                 data-aos="fade-right"
+                 data-aos-delay="400">
+                <a href="{{ section.settings.ring_guide_link }}"
+                   class="product-showcase__link --all-caps"
+                   title="{{ section.settings.ring_guide_title }}">{{ section.settings.ring_guide_text }}</a>
+            </div>
+            <div class="product-showcase__buttons"
+                 data-aos="fade-right"
+                 data-aos-delay="400">
+                <a href="{{ section.settings.buy_now_link }}"
+                   class="button button--filled"
+                   data-aos="fade-right"
+                   data-aos-delay="500">{{ section.settings.buy_now_text }}</a>
+            </div>
+            <div class="accordion"
+                 data-aos="fade-right"
+                 data-aos-delay="200">
+                <div class="accordion__wrapper"
+                     id="js-accordion"
+                     data-accordion="closed">
+                    <button class="accordion__triggers"
+                            title="{{ section.settings.accordion_toggle_title }}">
+                        <span class="accordion__text --all-caps">{{ section.settings.accordion_title }}</span>
+                        <span class="accordion__expander">+</span>
+                    </button>
+                    <div class="accordion__content">
+                        <ul>
+                            {% for item in section.blocks %}
+                                <li>{{ item.settings.item_text }}</li>
+                            {% endfor %}
+                        </ul>
+                        <span>{{ section.settings.accordion_note }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-showcase__footnote"
+                 data-aos="fade-right"
+                 data-aos-delay="200">
+                <span class="--all-caps">{{ section.settings.footnote_heading }}</span>
+                <a href="{{ section.settings.footnote_link }}"
+                   class="--all-caps"
+                   title="{{ section.settings.footnote_title }}">{{ section.settings.footnote_text }}</a>
+            </div>
+        </div>
+        <div class="slider"
+             id="js-simple-slider"
+             data-aos="fade-in"
+             data-aos-delay="50">
+            {% for slide in section.settings.slider_images %}
+                <div class="slider__slide {% if forloop.first %}--current{% endif %}">
+                    <img src="{{ slide.image | asset_url }}"
+                         class="product-showcase__image"
+                         alt="{{ slide.alt }}" />
+                </div>
+            {% endfor %}
+            <div class="slider__arrow --left">
+                <button title="{{ section.settings.slider_arrow_left_title }}">
+                    <svg width="47"
+                         height="20"
+                         viewBox="0 0 47 20"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L23.5 19L46 1" stroke="#D9D9D9"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="slider__arrow --right">
+                <button title="{{ section.settings.slider_arrow_right_title }}">
+                    <svg width="47"
+                         height="20"
+                         viewBox="0 0 47 20"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L23.5 19L46 1" stroke="#D9D9D9"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="slider__pagination"
+                 data-aos="fade-up"
+                 data-aos-delay="150">
+                {% for slide in section.settings.slider_images %}
+                    <button class="slider__pagination-dot {% if forloop.first %}--current{% endif %}"
+                            title="{{ section.settings.slider_pagination_title }} {{ forloop.index }}"></button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The In Case <br/>of Death Case"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "The Zugu in Case of Death Case bricks your iPad when you die, so your secrets don’t outlive you. It’s designed for those of you with embarrassing search histories, scandalous camera rolls, compromising evidence, or a secret second family in Uruguay."
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price",
+      "default": "$1500.00"
+    },
+    {
+      "type": "text",
+      "id": "color",
+      "label": "Color",
+      "default": "Funeral Black"
+    },
+    {
+      "type": "text",
+      "id": "color_label",
+      "label": "Color Label",
+      "default": "Color:"
+    },
+    {
+      "type": "url",
+      "id": "ring_guide_link",
+      "label": "Ring Guide Link",
+      "default": "#"
+    },
+    {
+      "type": "text",
+      "id": "ring_guide_title",
+      "label": "Ring Guide Title",
+      "default": "Ring Size Guide"
+    },
+    {
+      "type": "text",
+      "id": "ring_guide_text",
+      "label": "Ring Guide Text",
+      "default": "Ring Size Guide"
+    },
+    {
+      "type": "url",
+      "id": "buy_now_link",
+      "label": "Buy Now Link",
+      "default": "#0"
+    },
+    {
+      "type": "text",
+      "id": "buy_now_text",
+      "label": "Buy Now Text",
+      "default": "Buy Now"
+    },
+    {
+      "type": "text",
+      "id": "accordion_title",
+      "label": "Accordion Title",
+      "default": "Kit Includes"
+    },
+    {
+      "type": "text",
+      "id": "accordion_toggle_title",
+      "label": "Accordion Toggle Title",
+      "default": "Click to Open or Close the accordion"
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_note",
+      "label": "Accordion Note",
+      "default": "Note: For connectivity reasons, the In Case of Death Case requires that you have an iPhone."
+    },
+    {
+      "type": "text",
+      "id": "footnote_heading",
+      "label": "Footnote Heading",
+      "default": "Not planning to die ANYTIME soon?"
+    },
+    {
+      "type": "url",
+      "id": "footnote_link",
+      "label": "Footnote Link",
+      "default": "#0"
+    },
+    {
+      "type": "text",
+      "id": "footnote_text",
+      "label": "Footnote Text",
+      "default": "Explore The Upcoming 360 Case"
+    },
+    {
+      "type": "text",
+      "id": "footnote_title",
+      "label": "Footnote Title",
+      "default": "Explore THE UPCOMING 360 Case"
+    },
+    {
+      "type": "list",
+      "id": "slider_images",
+      "label": "Slider Images",
+      "default": [
+        {
+          "image": "zugu__slider-s1.webp",
+          "alt": "Slide 1 Visual"
+        },
+        {
+          "image": "zugu__slider-s2.webp",
+          "alt": "Slide 2 Visual"
+        },
+        {
+          "image": "zugu__slider-s3.webp",
+          "alt": "Slide 3 Visual"
+        },
+        {
+          "image": "zugu__slider-s4.webp",
+          "alt": "Slide 4 Visual"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "slider_arrow_left_title",
+      "label": "Slider Arrow Left Title",
+      "default": "Show previous slide"
+    },
+    {
+      "type": "text",
+      "id": "slider_arrow_right_title",
+      "label": "Slider Arrow Right Title",
+      "default": "Show next slide"
+    },
+    {
+      "type": "text",
+      "id": "slider_pagination_title",
+      "label": "Slider Pagination Title",
+      "default": "View Slide"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "kit_item",
+      "name": "Kit Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "Item Text",
+          "default": "Brand New iPad Pro 11\" with M4 chip"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
