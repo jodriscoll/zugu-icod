@@ -40,35 +40,33 @@
     {{ content_for_header }}
 </head>
 <body>
-{% if settings.google_tag_manager_id %}
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ settings.google_tag_manager_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-{% endif %}
-
-{{ content_for_layout }}
-
-<script src="https://cdn.jsdelivr.net/gh/michalsnik/aos@2.3.1/dist/aos.js" defer></script>
-<script src="https://player.vimeo.com/api/player.js" defer></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let attempts = 0;
-        const maxAttempts = 5;
-        const interval = 1000;
-
-        const checkAOS = setInterval(() => {
-            if (typeof AOS !== 'undefined' && AOS.init) {
-                clearInterval(checkAOS);
-                AOS.init({
-                    once: true, // only animate once
-                });
-            } else {
-                attempts++;
-                if (attempts >= maxAttempts) {
+    
+    {{ content_for_layout }}
+    
+    <script src="https://cdn.jsdelivr.net/gh/michalsnik/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="https://player.vimeo.com/api/player.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let attempts = 0;
+            const maxAttempts = 5;
+            const interval = 1000;
+    
+            const checkAOS = setInterval(() => {
+                if (typeof AOS !== 'undefined' && AOS.init) {
                     clearInterval(checkAOS);
-                    console.error('AOS is not defined after 5 attempts. Ensure the AOS script is loaded.');
+                    AOS.init({
+                        once: true, // only animate once
+                    });
+                } else {
+                    attempts++;
+                    if (attempts >= maxAttempts) {
+                        clearInterval(checkAOS);
+                        console.error('AOS is not defined after 5 attempts. Ensure the AOS script is loaded.');
+                    }
                 }
-            }
-        }, interval);
-    });
-</script>
+            }, interval);
+        });
+    </script>
 </body>
 </html>
