@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    {% if settings.favicon_enable %}
-        <link rel="shortcut icon" href="{{ 'favicon.webp' | asset_url }}" type="image/png">
-    {% endif %}
+    <link rel="shortcut icon" href="{{ 'favicon.webp' | asset_url }}" type="image/png">
     <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap">
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Check if we're not in the Shopify editor
@@ -27,16 +24,13 @@
             }
         });
     </script>
-
-    {% if settings.google_ads_id %}
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.google_ads_id }}"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '{{ settings.google_ads_id }}');
-        </script>
-    {% endif %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.google_ads_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ settings.google_ads_id }}');
+    </script>
     {{ content_for_header }}
 </head>
 <body>
