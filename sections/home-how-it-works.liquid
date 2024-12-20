@@ -3,93 +3,92 @@
 {% endcomment %}
 
 <div class="how-it-works" id="how-it-works">
-  <div class="container-limited --flex-column">
-    <div class="how-it-works__content" data-aos="fade-up">
-      <h2 class="--all-caps"
-          data-aos="fade-up"
-          data-aos-delay="100">{{ section.settings.heading }}</h2>
-      <p data-aos="fade-up"
-         data-aos-delay="200">{{ section.settings.description }}</p>
+    <div class="container-limited --flex-column">
+        <div class="how-it-works__content" data-aos="fade-up">
+            <h2 class="--all-caps"
+                data-aos="fade-up"
+                data-aos-delay="100">{{ section.settings.heading }}</h2>
+            <p data-aos="fade-up"
+               data-aos-delay="200">{{ section.settings.description }}</p>
+        </div>
+        <div class="how-it-works__steps">
+            {% for step in section.blocks %}
+                {% if step.type == 'how_it_works_step' %}
+                    <div class="how-it-works__step">
+                        <div class="how-it-works__step-visual">
+                            <img src="{{ step.settings.step_image_url | asset_url }}"
+                                 height=""
+                                 width=""
+                                 alt="{{ step.settings.step_image_alt }}"
+                                 data-aos="fade-up"
+                                 data-aos-delay="100" />
+                        </div>
+                        <div class="how-it-works__step-content">
+                            <h3 class="--all-caps"
+                                data-aos="fade-up"
+                                data-aos-delay="200">{{ step.settings.step_title }}</h3>
+                            <p data-aos="fade-up"
+                               data-aos-delay="300">{{ step.settings.step_description }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
-    <div class="how-it-works__steps">
-      {% for step in section.blocks %}
-        {% if step.type == 'how_it_works_step' %}
-          <div class="how-it-works__step">
-            <div class="how-it-works__step-visual">
-              <img src="{{ step.settings.step_image_url | asset_url }}"
-                   height=""
-                   width=""
-                   alt="{{ step.settings.step_image_alt }}"
-                   data-aos="fade-up"
-                   data-aos-delay="100" />
-            </div>
-            <div class="how-it-works__step-content">
-              <h3 class="--all-caps"
-                  data-aos="fade-up"
-                  data-aos-delay="200">{{ step.settings.step_title }}</h3>
-              <p data-aos="fade-up"
-                 data-aos-delay="300">{{ step.settings.step_description }}</p>
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
 </div>
 
 {% schema %}
 {
-  "name": "How it Works",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "How it works"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Our Pulse Detection Technology ensures that your iPad automatically self-destructs the moment your heart stops."
-    }
-  ],
-  "blocks": [
-    {
-      "type": "how_it_works_step",
-      "name": "How it Works Step",
-      "settings": [
+    "name": "How it Works",
+    "settings": [
         {
-          "type": "image_picker",
-          "id": "step_image_url",
-          "label": "Step Image"
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "How it works"
         },
         {
-          "type": "text",
-          "id": "step_image_alt",
-          "label": "Image Alt Text",
-          "default": "Step 1"
-        },
-        {
-          "type": "text",
-          "id": "step_title",
-          "label": "Step Title",
-          "default": "Step 1"
-        },
-        {
-          "type": "textarea",
-          "id": "step_description",
-          "label": "Step Description",
-          "default": "You die.<br/>(Sorry for your loss.)"
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Our Pulse Detection Technology ensures that your iPad automatically self-destructs the moment your heart stops."
         }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Steps"
-    }
-  ]
+    ],
+    "blocks": [
+        {
+            "type": "how_it_works_step",
+            "name": "How it Works Step",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "step_image_url",
+                    "label": "Step Image"
+                },
+                {
+                    "type": "text",
+                    "id": "step_image_alt",
+                    "label": "Image Alt Text",
+                    "default": "Step 1"
+                },
+                {
+                    "type": "text",
+                    "id": "step_title",
+                    "label": "Step Title",
+                    "default": "Step 1"
+                },
+                {
+                    "type": "textarea",
+                    "id": "step_description",
+                    "label": "Step Description",
+                    "default": "You die.<br/>(Sorry for your loss.)"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Default"
+        }
+    ]
 }
 {% endschema %}

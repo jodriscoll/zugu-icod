@@ -9,13 +9,37 @@
                 title="{{ section.settings.close_button_title }}"></button>
         <div class="modal__oembed"></div>
     </div>
-    <!-- <div><iframe src="https://player.vimeo.com/video/1038394824?badge=0&app_id=58479" frameborder="0" allow="fullscreen;picture-in-picture;clipboard-write" title="{{ section.settings.video_title }}"></iframe></div> -->
+    <!-- <div><iframe src="https://player.vimeo.com/video/{{ section.settings.iframe_hero_vimeo_id }}?{{ section.settings.iframe_hero_settings }}" frameborder="0" allow="{{ section.settings.iframe_hero_allow }}" title="{{ section.settings.iframe_hero_title }}"></iframe></div> -->
 </div>
 
 {% schema %}
 {
     "name": "Modal",
     "settings": [
+        {
+            "type": "text",
+            "id": "iframe_hero_vimeo_id",
+            "label": "Vimeo Iframe ID",
+            "default": "1041124517"
+        },
+        {
+            "type": "text",
+            "id": "iframe_hero_settings",
+            "label": "Iframe Src Settings",
+            "default": "badge=0&app_id=58479"
+        },
+        {
+            "type": "text",
+            "id": "iframe_hero_allow",
+            "label": "Iframe Allow Attributes",
+            "default": "fullscreen;picture-in-picture;clipboard-write"
+        },
+        {
+            "type": "text",
+            "id": "iframe_hero_title",
+            "label": "Iframe Title",
+            "default": "Demonstration Video"
+        },
         {
             "type": "text",
             "id": "close_button_title",

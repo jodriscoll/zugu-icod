@@ -6,11 +6,12 @@
     <div class="hero__oembed">
         <div class="hero__oembed-overlay"></div>
         <div class="hero__oembed-iframe">
-            <iframe src="https://player.vimeo.com/video/897279696?playsinline=1&controls=0&hd=1&autoplay=1&background=1&loop=1&byline=0&title=0&muted=1"
+            <iframe src="https://player.vimeo.com/video/{{ section.settings.iframe_modal_vimeo_id }}?{{ section.settings.iframe_modal_settings }}"
                     width="1920"
                     height="1080"
                     frameborder="0"
-                    allow="autoplay;fullscreen;picture-in-picture"
+                    allow="{{ section.settings.iframe_modal_allow }}"
+                    title="{{ section.settings.iframe_modal_title }}"
                     tabindex="-1"
                     id="js-background-video"
                     data-ready="true">
@@ -67,44 +68,68 @@
 
 {% schema %}
 {
-  "name": "Hero w/ Video",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Introducing<br/>The In Case<br/>of Death Case."
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Bricks your iPad when you die, so you can take your secrets to the grave."
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "From the makers of the case for every situation comes a case for the most extreme situation: mortality. A limited edition version of our yet-to-be-released 360 case, for anyone who wants to bury their secrets."
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "Watch a live demonstration"
-    },
-    {
-      "type": "text",
-      "id": "scroll_target",
-      "label": "Scroll Target",
-      "default": "showcase"
-    },
-    {
-      "type": "text",
-      "id": "scroll_title",
-      "label": "Scroll Link Title",
-      "default": "Jump to next section"
-    }
-  ]
+    "name": "Hero w/ Video",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Introducing<br/>The In Case<br/>of Death Case."
+        },
+        {
+            "type": "text",
+            "id": "subheading",
+            "label": "Subheading",
+            "default": "Bricks your iPad when you die, so you can take your secrets to the grave."
+        },
+        {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "From the makers of the case for every situation comes a case for the most extreme situation: mortality. A limited edition version of our yet-to-be-released 360 case, for anyone who wants to bury their secrets."
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Watch a live demonstration"
+        },
+        {
+            "type": "text",
+            "id": "scroll_target",
+            "label": "Scroll Target (HTML ID)",
+            "default": "showcase"
+        },
+        {
+            "type": "text",
+            "id": "scroll_title",
+            "label": "Scroll Link Title",
+            "default": "Jump to next section"
+        },
+        {
+            "type": "text",
+            "id": "iframe_modal_vimeo_id",
+            "label": "Vimeo Iframe ID",
+            "default": "897279696"
+        },
+        {
+            "type": "text",
+            "id": "iframe_modal_settings",
+            "label": "Iframe Src Settings",
+            "default": "playsinline=1&controls=0&hd=1&autoplay=1&background=1&loop=1&byline=0&title=0&muted=1"
+        },
+        {
+            "type": "text",
+            "id": "iframe_modal_allow",
+            "label": "Iframe Allow Attributes",
+            "default": "autoplay;fullscreen;picture-in-picture"
+        },
+        {
+            "type": "text",
+            "id": "iframe_modal_title",
+            "label": "Iframe Title",
+            "default": "Looping Background Video"
+        },
+    ]
 }
 {% endschema %}

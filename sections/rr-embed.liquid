@@ -3,44 +3,49 @@
 {% endcomment %}
 
 <div class="rick-roll">
-  <div class="rick-roll__iframe">
-    <span class="rick-roll__loading"></span>
-    <iframe src="https://player.vimeo.com/video/1038394824?badge=0&autopause=0&player_id=0&background=1&loop=1&app_id=58479"
-            frameborder="0"
-            allow="{{ section.settings.iframe_allow }}"
-            style="{{ section.settings.iframe_style }}"
-            title="{{ section.settings.video_title }}"></iframe>
-  </div>
+    <div class="rick-roll__iframe">
+        <span class="rick-roll__loading"></span>
+        <iframe src="https://player.vimeo.com/video/1038394824?{{ section.settings.iframe_settings }}"
+                frameborder="0"
+                allow="{{ section.settings.iframe_allow }}"
+                style="{{ section.settings.iframe_style }}"
+                title="{{ section.settings.video_title }}"></iframe>
+    </div>
 </div>
 
 {% schema %}
 {
-  "name": "Rick Rolled Embed",
-  "settings": [
-    {
-      "type": "text",
-      "id": "iframe_allow",
-      "label": "Iframe Allow Attributes",
-      "default": "autoplay;fullscreen;picture-in-picture;clipboard-write"
-    },
-    {
-      "type": "text",
-      "id": "iframe_style",
-      "label": "Iframe Style",
-      "default": "height:100vh;width:100vw;"
-    },
-    {
-      "type": "text",
-      "id": "video_title",
-      "label": "Video Title",
-      "default": "Rickroll"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Embed"
-    }
-  ]
+    "name": "Rick Rolled Embed",
+    "settings": [
+        {
+            "type": "text",
+            "id": "iframe_settings",
+            "label": "Vimeo Iframe Src Settings",
+            "default": "badge=0&autopause=0&player_id=0&background=1&loop=1&app_id=58479"
+        },
+        {
+            "type": "text",
+            "id": "iframe_allow",
+            "label": "Vimeo Iframe Allow Attributes",
+            "default": "autoplay;fullscreen;picture-in-picture;clipboard-write"
+        },
+        {
+            "type": "text",
+            "id": "iframe_style",
+            "label": "Iframe Style",
+            "default": "height:100vh;width:100vw;"
+        },
+        {
+            "type": "text",
+            "id": "video_title",
+            "label": "Video Title",
+            "default": "Rickroll"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Default",
+        }
+    ]
 }
 {% endschema %}

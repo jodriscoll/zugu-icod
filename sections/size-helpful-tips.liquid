@@ -3,123 +3,122 @@
 {% endcomment %}
 
 <div class="helpful-tips --flex-column">
-  <div class="backgrounds__container">
-    <img src="{{ section.settings.bg_image_top | asset_url }}"
-         height=""
-         width=""
-         class="backgrounds__bg-right"
-         data-aos="fade-left"
-         data-aos-delay="300"
-         alt="{{ section.settings.bg_image_top_alt }}" />
-    <img src="{{ section.settings.bg_image_bottom | asset_url }}"
-         height=""
-         width=""
-         class="backgrounds__bg-left"
-         data-aos="fade-right"
-         data-aos-delay="300"
-         alt="{{ section.settings.bg_image_bottom_alt }}" />
-  </div>
-  <div class="container-limited">
-    <div class="helpful-tips__content">
-      <p class="--all-caps"
-         data-aos="fade-right"
-         data-aos-delay="100">{{ section.settings.heading }}</p>
-      <ul>
-        {% for tip in section.blocks %}
-          <li data-aos="fade-right"
-              data-aos-delay="200">{{ tip.settings.tip_text }}</li>
-        {% endfor %}
-      </ul>
-      <p data-aos="fade-right"
-         data-aos-delay="250">{{ section.settings.reach_out_text }}</p>
-      <p data-aos="fade-right"
-         data-aos-delay="300">{{ section.settings.support_message | escape }} <a href="mailto:{{ section.settings.support_email }}" title="{{ section.settings.support_email_title }}">{{ section.settings.support_email }}</a>. {{ section.settings.support_closing }}</p>
+    <div class="backgrounds__container">
+        <img src="{{ section.settings.bg_image_top | asset_url }}"
+             height=""
+             width=""
+             class="backgrounds__bg-right"
+             data-aos="fade-left"
+             data-aos-delay="300"
+             alt="{{ section.settings.bg_image_top_alt }}" />
+        <img src="{{ section.settings.bg_image_bottom | asset_url }}"
+             height=""
+             width=""
+             class="backgrounds__bg-left"
+             data-aos="fade-right"
+             data-aos-delay="300"
+             alt="{{ section.settings.bg_image_bottom_alt }}" />
     </div>
-  </div>
+    <div class="container-limited">
+        <div class="helpful-tips__content">
+            <p class="--all-caps"
+               data-aos="fade-right"
+               data-aos-delay="100">{{ section.settings.heading }}</p>
+            <ul>
+                {% for tip in section.blocks %}
+                    <li data-aos="fade-right"
+                        data-aos-delay="200">{{ tip.settings.tip_text }}</li>
+                {% endfor %}
+            </ul>
+            <p data-aos="fade-right"
+               data-aos-delay="250">{{ section.settings.reach_out_text }}</p>
+            <p data-aos="fade-right"
+               data-aos-delay="300">{{ section.settings.support_message | escape }} <a href="mailto:{{ section.settings.support_email }}" title="{{ section.settings.support_email_title }}">{{ section.settings.support_email }}</a>. {{ section.settings.support_closing }}</p>
+        </div>
+    </div>
 </div>
 
 {% schema %}
 {
-  "name": "Helpful Tips",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "bg_image_top",
-      "label": "Top Background Image"
-    },
-    {
-      "type": "text",
-      "id": "bg_image_top_alt",
-      "label": "Top Background Image Alt Text",
-      "default": "Bottom Left Background"
-    },
-    {
-      "type": "image_picker",
-      "id": "bg_image_bottom",
-      "label": "Bottom Background Image"
-    },
-    {
-      "type": "text",
-      "id": "bg_image_bottom_alt",
-      "label": "Bottom Background Image Alt Text",
-      "default": "Top Right Background"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Helpful tips:"
-    },
-    {
-      "type": "text",
-      "id": "reach_out_text",
-      "label": "Reach Out Text",
-      "default": "Reach out if you need help!"
-    },
-    {
-      "type": "text",
-      "id": "support_message",
-      "label": "Support Message",
-      "default": "If you have any concerns or need additional guidance, please reach out to our support team at"
-    },
-    {
-      "type": "text",
-      "id": "support_email",
-      "label": "Support Email",
-      "default": "DeathSupport@ZUGUcase.com"
-    },
-    {
-      "type": "text",
-      "id": "support_email_title",
-      "label": "Support Email Title",
-      "default": "We're here to help"
-    },
-    {
-      "type": "text",
-      "id": "support_closing",
-      "label": "Support Closing",
-      "default": "We’re here to help!"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "helpful_tips_tip",
-      "name": "Helpful Tips - Tip",
-      "settings": [
+    "name": "Helpful Tips",
+    "settings": [
         {
-          "type": "textarea",
-          "id": "tip_text",
-          "label": "Tip Text",
-          "default": "Measure More Than Once: Your fingers may change size slightly depending on the time of day or temperature. Measure multiple times for accuracy."
+            "type": "image_picker",
+            "id": "bg_image_top",
+            "label": "Top Background Image"
+        },
+        {
+            "type": "text",
+            "id": "bg_image_top_alt",
+            "label": "Top Background Image Alt Text",
+            "default": "Bottom Left Background"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image_bottom",
+            "label": "Bottom Background Image"
+        },
+        {
+            "type": "text",
+            "id": "bg_image_bottom_alt",
+            "label": "Bottom Background Image Alt Text",
+            "default": "Top Right Background"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Helpful tips:"
+        },
+        {
+            "type": "text",
+            "id": "reach_out_text",
+            "label": "Reach Out Text",
+            "default": "Reach out if you need help!"
+        },
+        {
+            "type": "text",
+            "id": "support_message",
+            "label": "Support Message",
+            "default": "If you have any concerns or need additional guidance, please reach out to our support team at"
+        },
+        {
+            "type": "text",
+            "id": "support_email",
+            "label": "Support Email",
+            "default": "DeathSupport@ZUGUcase.com"
+        },
+        {
+            "type": "text",
+            "id": "support_email_title",
+            "label": "Support Email Title",
+            "default": "We're here to help"
+        },
+        {
+            "type": "text",
+            "id": "support_closing",
+            "label": "Support Closing",
+            "default": "We’re here to help!"
         }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Tips"
-    }
-  ]
+    ],
+    "blocks": [
+        {
+            "type": "helpful_tips_tip",
+            "name": "Helpful Tips - Tip",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "tip_text",
+                    "label": "Tip Text",
+                    "default": "Measure More Than Once: Your fingers may change size slightly depending on the time of day or temperature. Measure multiple times for accuracy."
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Default"
+        }
+    ]
 }
 {% endschema %}

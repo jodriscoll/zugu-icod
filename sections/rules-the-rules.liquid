@@ -3,51 +3,50 @@
 {% endcomment %}
 
 <div class="the-rules --flex-column">
-  <div class="container-limited --flex-column">
-    <div class="the-rules__content --flex-column" data-aos="fade-up">
-      <h1 class="--all-caps"
-          data-aos="fade-up"
-          data-aos-delay="100">{{ section.settings.heading }}</h1>
-      <ol>
-        {% for rule in section.blocks %}
-          <li data-aos="fade-up"
-              data-aos-delay="200">{{ rule.settings.rule_text }}</li>
-        {% endfor %}
-      </ol>
+    <div class="container-limited --flex-column">
+        <div class="the-rules__content --flex-column" data-aos="fade-up">
+            <h1 class="--all-caps"
+                data-aos="fade-up"
+                data-aos-delay="100">{{ section.settings.heading }}</h1>
+            <ol>
+                {% for rule in section.blocks %}
+                    <li data-aos="fade-up"
+                        data-aos-delay="200">{{ rule.settings.rule_text }}</li>
+                {% endfor %}
+            </ol>
+        </div>
     </div>
-  </div>
 </div>
 
 {% schema %}
 {
-  "name": "Giveaway Rules",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Zugu Giveaway Rules"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "giveaway_rule",
-      "name": "Giveaway Rule",
-      "settings": [
+    "name": "Giveaway Rules",
+    "settings": [
         {
-          "type": "textarea",
-          "id": "rule_text",
-          "label": "Rule Text",
-          "default": "Eligibility: Open to legal residents of the United States and Canada (excluding Quebec), 18 or older. Canadian winners will be required to answer a skill-testing question to claim their prize. Void where prohibited or restricted by law."
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Zugu Giveaway Rules"
         }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Giveaway"
-    }
-  ]
+    ],
+    "blocks": [
+        {
+            "type": "giveaway_rule",
+            "name": "Giveaway Rule",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "rule_text",
+                    "label": "Rule Text",
+                    "default": "Eligibility: Open to legal residents of the United States and Canada (excluding Quebec), 18 or older. Canadian winners will be required to answer a skill-testing question to claim their prize. Void where prohibited or restricted by law."
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Default"
+        }
+    ]
 }
 {% endschema %}

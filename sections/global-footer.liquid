@@ -3,127 +3,54 @@
 {% endcomment %}
 
 <div class="footer">
-  <div class="container-limited --flex-column">
-    <nav class="footer__links --all-caps"
-         data-aos="fade-up"
-         data-aos-delay="300"
-         data-aos-offset="-200">
-      {% for link in section.blocks %}
-        <a href="{{ link.settings.link_url }}"
-           class="footer__link"
-           title="{{ link.settings.link_title }}">{{ link.settings.link_text }}</a>
-      {% endfor %}
-    </nav>
-  </div>
+    <div class="container-limited --flex-column">
+        <nav class="footer__links --all-caps"
+             data-aos="fade-up"
+             data-aos-delay="300"
+             data-aos-offset="-200">
+            {% for link in section.blocks %}
+                <a href="{{ link.settings.link_url }}"
+                   class="footer__link"
+                   title="{{ link.settings.link_title }}">{{ link.settings.link_text }}</a>
+            {% endfor %}
+        </nav>
+    </div>
 </div>
 
 {% schema %}
 {
-  "name": "Global Footer",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "footer_link_1",
-      "name": "Footer Link 1",
-      "settings": [
+    "name": "Global Footer",
+    "settings": [],
+    "blocks": [
         {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL",
-          "default": "/"
-        },
-        {
-          "type": "text",
-          "id": "link_title",
-          "label": "Link Title",
-          "default": "Privacy Policy"
-        },
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text",
-          "default": "Privacy Policy"
+            "type": "footer_link",
+            "name": "Footer Link",
+            "settings": [
+                {
+                    "type": "url",
+                    "id": "link_url",
+                    "label": "Link URL",
+                    "default": "/"
+                },
+                {
+                    "type": "text",
+                    "id": "link_title",
+                    "label": "Link Title",
+                    "default": "Link Title"
+                },
+                {
+                    "type": "text",
+                    "id": "link_text",
+                    "label": "Link Text",
+                    "default": "Link Text"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "type": "footer_link_2",
-      "name": "Footer Link 2",
-      "settings": [
+    ],
+    "presets": [
         {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL",
-          "default": "/"
-        },
-        {
-          "type": "text",
-          "id": "link_title",
-          "label": "Link Title",
-          "default": "Warranty and Returns"
-        },
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text",
-          "default": "Warranty & Returns"
+            "name": "Default"
         }
-      ]
-    },
-    {
-      "type": "footer_link_3",
-      "name": "Footer Link 3",
-      "settings": [
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL",
-          "default": "/"
-        },
-        {
-          "type": "text",
-          "id": "link_title",
-          "label": "Link Title",
-          "default": "Giveaway"
-        },
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text",
-          "default": "Giveaway"
-        }
-      ]
-    },
-    {
-      "type": "footer_link_4",
-      "name": "Footer Link 4",
-      "settings": [
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL",
-          "default": "/"
-        },
-        {
-          "type": "text",
-          "id": "link_title",
-          "label": "Link Title",
-          "default": "Contact Us"
-        },
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text",
-          "default": "Contact Us"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Footer"
-    }
-  ]
+    ]
 }
 {% endschema %}

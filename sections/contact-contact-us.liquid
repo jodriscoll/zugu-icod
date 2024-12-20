@@ -3,84 +3,84 @@
 {% endcomment %}
 
 <div class="contact-us --flex-column">
-  <div class="backgrounds__container">
-    <img src="{{ 'zugu__contact-bg-top-right.webp' | asset_url }}"
-         height=""
-         width=""
-         class="backgrounds__bg-right"
-         data-aos="fade-left"
-         data-aos-delay="300"
-         alt="{{ section.settings.bg_top_left_alt }}" />
-    <img src="{{ 'zugu__contact-bg-bottom-left.webp' | asset_url }}"
-         height=""
-         width=""
-         class="backgrounds__bg-left"
-         data-aos="fade-right"
-         data-aos-delay="300"
-         alt="{{ section.settings.bg_bottom_left_alt }}" />
-  </div>
-  <div class="container-limited --flex-column">
-    <div class="contact-us__content">
-      <h2 class="--all-caps"
-          data-aos="fade-up"
-          data-aos-delay="100">{{ section.settings.heading }}</h2>
-      <p data-aos="fade-up"
-         data-aos-delay="200">{{ section.settings.subheading }}</p>
-      <div data-aos="fade-up"
-           data-aos-delay="300">
-        <a href="mailto:{{ section.settings.email }}"
-           title="{{ section.settings.email_title }}">{{ section.settings.email_display }}</a>
-      </div>
+    <div class="backgrounds__container">
+        <img src="{{ 'zugu__contact-bg-top-right.webp' | asset_url }}"
+             height=""
+             width=""
+             class="backgrounds__bg-right"
+             data-aos="fade-left"
+             data-aos-delay="300"
+             alt="{{ section.settings.bg_top_left_alt }}" />
+        <img src="{{ 'zugu__contact-bg-bottom-left.webp' | asset_url }}"
+             height=""
+             width=""
+             class="backgrounds__bg-left"
+             data-aos="fade-right"
+             data-aos-delay="300"
+             alt="{{ section.settings.bg_bottom_left_alt }}" />
     </div>
-  </div>
+    <div class="container-limited --flex-column">
+        <div class="contact-us__content">
+            <h2 class="--all-caps"
+                data-aos="fade-up"
+                data-aos-delay="100">{{ section.settings.heading }}</h2>
+            <p data-aos="fade-up"
+               data-aos-delay="200">{{ section.settings.subheading }}</p>
+            <div data-aos="fade-up"
+                 data-aos-delay="300">
+                <a href="mailto:{{ section.settings.email }}"
+                   title="{{ section.settings.email_title }}">{{ section.settings.email_display }}</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% schema %}
 {
-  "name": "Contact Us",
-  "settings": [
-    {
-      "type": "text",
-      "id": "bg_top_left_alt",
-      "label": "Top Left Background Alt Text",
-      "default": "Top Left Background"
-    },
-    {
-      "type": "text",
-      "id": "bg_bottom_left_alt",
-      "label": "Bottom Left Background Alt Text",
-      "default": "Bottom Left Background"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Contact Us"
-    },
-    {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Email us from the physical plane or the spiritual hereafter at:"
-    },
-    {
-      "type": "text",
-      "id": "email",
-      "label": "Email Address",
-      "default": "deathsupport@zugucase.com"
-    },
-    {
-      "type": "text",
-      "id": "email_display",
-      "label": "Email Display Text",
-      "default": "DeathSupport@ZUGUcase.com"
-    },
-    {
-      "type": "text",
-      "id": "email_title",
-      "label": "Email Link Title",
-      "default": "Contact Support"
-    }
-  ]
+    "name": "Contact Us",
+    "settings": [
+        {
+            "type": "text",
+            "id": "bg_top_left_alt",
+            "label": "Top Left Background Alt Text",
+            "default": "Top Left Background"
+        },
+        {
+            "type": "text",
+            "id": "bg_bottom_left_alt",
+            "label": "Bottom Left Background Alt Text",
+            "default": "Bottom Left Background"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Contact Us"
+        },
+        {
+            "type": "textarea",
+            "id": "subheading",
+            "label": "Subheading",
+            "default": "Email us from the physical plane or the spiritual hereafter at:"
+        },
+        {
+            "type": "text",
+            "id": "email",
+            "label": "Email Address",
+            "default": "deathsupport@zugucase.com"
+        },
+        {
+            "type": "text",
+            "id": "email_display",
+            "label": "Email Display Text",
+            "default": "DeathSupport@ZUGUcase.com"
+        },
+        {
+            "type": "text",
+            "id": "email_title",
+            "label": "Email Link Title",
+            "default": "Contact Support"
+        }
+    ]
 }
 {% endschema %}

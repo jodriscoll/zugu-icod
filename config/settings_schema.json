@@ -1,30 +1,715 @@
-[
-    {
-        "name": "General Settings",
-        "settings": [
-            {
-                "type": "checkbox",
-                "id": "favicon_enable",
-                "label": "Enable Favicon",
-                "default": true
-            }
-        ]
-    },
-    {
-        "name": "Analytics Settings",
-        "settings": [
-            {
-                "type": "text",
-                "id": "google_tag_manager_id",
-                "label": "Google Tag Manager ID",
-                "default": "GTM-NMTXGB2"
+{
+    "current": {
+        "sections": {
+            "home-hero": {
+                "type": "home-hero",
+                "settings": {
+                    "heading": "Introducing<br>The In Case<br>of Death Case.",
+                    "subheading": "Bricks your iPad when you die, so you can take your secrets to the grave.",
+                    "description": "From the makers of the case for every situation comes a case for the most extreme situation: mortality. A limited edition version of our yet-to-be-released 360 case, for anyone who wants to bury their secrets.",
+                    "button_text": "Watch a live demonstration",
+                    "scroll_target": "showcase",
+                    "scroll_title": "Jump to next section",
+                    "iframe_modal_vimeo_id": "1041124517",
+                    "iframe_modal_settings": "playsinline=1&controls=0&hd=1&autoplay=1&background=1&loop=1&byline=0&title=0&muted=1",
+                    "iframe_modal_allow": "autoplay;fullscreen;picture-in-picture",
+                    "iframe_modal_title": "Looping Background Video"
+                }
             },
-            {
-                "type": "text",
-                "id": "google_ads_id",
-                "label": "Google Ads ID",
-                "default": "AW-984977898"
+            "home-product-showcase": {
+                "type": "home-product-showcase",
+                "blocks": {
+                    "kit_item_NqUUmq": {
+                        "type": "kit_item",
+                        "settings": {
+                            "item_text": "Brand New iPad Pro 11\" with M4 chip"
+                        }
+                    },
+                    "kit_item_VQADYe": {
+                        "type": "kit_item",
+                        "settings": {
+                            "item_text": "Limited Edition Zugu 360 Protective Case"
+                        }
+                    },
+                    "kit_item_UkUApq": {
+                        "type": "kit_item",
+                        "settings": {
+                            "item_text": "In Case of Death Smart Ring with Pulse Detection Technology"
+                        }
+                    },
+                    "kit_item_Wej8gz": {
+                        "type": "kit_item",
+                        "settings": {
+                            "item_text": "Proprietary In Case of Death app"
+                        }
+                    },
+                    "kit_item_9Q6YfB": {
+                        "type": "kit_item",
+                        "settings": {
+                            "item_text": "Peace of mind, so you can rest in peace"
+                        }
+                    },
+                    "product_showcase_slide_MzcHD4": {
+                        "type": "product_showcase_slide",
+                        "settings": {
+                            "product_slide_image": "shopify://shop_images/zugu__slider-s1.webp",
+                            "slide_alt": "Slide 1 Visual"
+                        }
+                    },
+                    "product_showcase_slide_9dnMGB": {
+                        "type": "product_showcase_slide",
+                        "settings": {
+                            "product_slide_image": "shopify://shop_images/zugu__slider-s2.webp",
+                            "slide_alt": "Slide 2 Visual"
+                        }
+                    },
+                    "product_showcase_slide_tCjyWM": {
+                        "type": "product_showcase_slide",
+                        "settings": {
+                            "product_slide_image": "shopify://shop_images/zugu__slider-s3.webp",
+                            "slide_alt": "Slide 3 Visual"
+                        }
+                    },
+                    "product_showcase_slide_EqFxnR": {
+                        "type": "product_showcase_slide",
+                        "settings": {
+                            "product_slide_image": "shopify://shop_images/zugu__slider-s4.webp",
+                            "slide_alt": "Slide 1 Visual"
+                        }
+                    },
+                    "product_showcase_slide_RnPeTG": {
+                        "type": "product_showcase_slide",
+                        "settings": {
+                            "product_slide_image": "shopify://shop_images/zugu__slider-s5.webp",
+                            "slide_alt": "Slide 1 Visual"
+                        }
+                    },
+                    "product_showcase_slide_JHBWPL": {
+                        "type": "product_showcase_slide",
+                        "settings": {
+                            "product_slide_image": "shopify://shop_images/zugu__slider-s6.webp",
+                            "slide_alt": "Slide 1 Visual"
+                        }
+                    }
+                },
+                "block_order": [
+                    "kit_item_NqUUmq",
+                    "kit_item_VQADYe",
+                    "kit_item_UkUApq",
+                    "kit_item_Wej8gz",
+                    "kit_item_9Q6YfB",
+                    "product_showcase_slide_MzcHD4",
+                    "product_showcase_slide_9dnMGB",
+                    "product_showcase_slide_tCjyWM",
+                    "product_showcase_slide_EqFxnR",
+                    "product_showcase_slide_RnPeTG",
+                    "product_showcase_slide_JHBWPL"
+                ],
+                "settings": {
+                    "heading": "The In Case <br>of Death Case",
+                    "description": "The Zugu in Case of Death Case bricks your iPad when you die, so your secrets don’t outlive you. It’s designed for those of you with embarrassing search histories, scandalous camera rolls, compromising evidence, or a secret second family in Uruguay.",
+                    "price": "$1500.00",
+                    "color": "Funeral Black",
+                    "color_label": "Color:",
+                    "ring_guide_link": "/",
+                    "ring_guide_title": "Ring Size Guide",
+                    "ring_guide_text": "Ring Size Guide",
+                    "buy_now_link": "/",
+                    "buy_now_text": "Buy Now",
+                    "accordion_title": "Kit Includes",
+                    "accordion_toggle_title": "Click to Open or Close the accordion",
+                    "accordion_note": "Note: For connectivity reasons, the In Case of Death Case requires that you have an iPhone.",
+                    "footnote_heading": "Not planning to die ANYTIME soon?",
+                    "footnote_link": "/",
+                    "footnote_text": "Explore The Upcoming 360 Case",
+                    "footnote_title": "Explore THE UPCOMING 360 Case",
+                    "slider_arrow_left_title": "Show previous slide",
+                    "slider_arrow_right_title": "Show next slide",
+                    "slider_pagination_title": "View Slide"
+                }
+            },
+            "home-how-it-works": {
+                "type": "home-how-it-works",
+                "blocks": {
+                    "how_it_works_step_WczbFi": {
+                        "type": "how_it_works_step",
+                        "settings": {
+                            "step_image_url": "shopify://shop_images/zugu__step-1.svg",
+                            "step_image_alt": "Step 1",
+                            "step_title": "Step 1",
+                            "step_description": "You die.<br>(Sorry for your loss.)"
+                        }
+                    },
+                    "how_it_works_step_ULjyn3": {
+                        "type": "how_it_works_step",
+                        "settings": {
+                            "step_image_url": "shopify://shop_images/zugu__step-2.webp",
+                            "step_image_alt": "Step 2",
+                            "step_title": "Step 2",
+                            "step_description": "The In Case of Death Smart Ring detects your lack of pulse and sends a signal to your iPad."
+                        }
+                    },
+                    "how_it_works_step_zMWQcB": {
+                        "type": "how_it_works_step",
+                        "settings": {
+                            "step_image_alt": "Step 3",
+                            "step_title": "Step 3",
+                            "step_description": "Your iPad is bricked to delete all its data, so your secrets are buried with you. (iPad will not actually smoke upon its death.)"
+                        }
+                    }
+                },
+                "block_order": [
+                    "how_it_works_step_WczbFi",
+                    "how_it_works_step_ULjyn3",
+                    "how_it_works_step_zMWQcB"
+                ],
+                "settings": {
+                    "heading": "How it works",
+                    "description": "Our Pulse Detection Technology ensures that your iPad automatically self-destructs the moment your heart stops."
+                }
+            },
+            "home-about-case": {
+                "type": "home-about-case",
+                "blocks": {
+                    "feature_epMHFW": {
+                        "type": "feature",
+                        "settings": {
+                            "feature_heading": "Wraparound<br>Bumper Shell",
+                            "feature_text": "For maximum protection at every angle.",
+                            "feature_image": "shopify://shop_images/zugu__about-1.webp",
+                            "image_alt": "Lorem Ipsum"
+                        }
+                    },
+                    "feature_VQY97q": {
+                        "type": "feature",
+                        "settings": {
+                            "feature_heading": "Detachable Magnetic Kickstand",
+                            "feature_text": "Guarantees stability, in both portrait and landscape viewing.",
+                            "feature_image": "shopify://shop_images/zugu__about-2.webp",
+                            "image_alt": "Lorem Ipsum"
+                        }
+                    },
+                    "feature_4WHjP6": {
+                        "type": "feature",
+                        "settings": {
+                            "feature_heading": "Internal Fiberglass Construction",
+                            "feature_text": "Maximizes strength and minimizes weight.",
+                            "feature_image": "shopify://shop_images/zugu__about-3.webp",
+                            "image_alt": "Lorem Ipsum"
+                        }
+                    },
+                    "feature_wKWAjV": {
+                        "type": "feature",
+                        "settings": {
+                            "feature_heading": "Handmade Fabrication",
+                            "feature_text": "By Zugu’s in-house design team, for better materials and quality control.",
+                            "feature_image": "shopify://shop_images/zugu__about-4.webp",
+                            "image_alt": "Lorem Ipsum"
+                        }
+                    },
+                    "feature_jw3cCG": {
+                        "type": "feature",
+                        "settings": {
+                            "feature_heading": "Magnetic Cover",
+                            "feature_text": "Ensures your case won’t open unless you want it to.",
+                            "feature_image": "shopify://shop_images/zugu__about-5.webp",
+                            "image_alt": "Lorem Ipsum"
+                        }
+                    },
+                    "feature_JcV8Qk": {
+                        "type": "feature",
+                        "settings": {
+                            "feature_heading": "High-Quality Leatherette",
+                            "feature_text": "Durable and cruelty-free.",
+                            "feature_image": "shopify://shop_images/zugu__about-6.webp",
+                            "image_alt": "Lorem Ipsum"
+                        }
+                    },
+                    "feature_HUaYCA": {
+                        "type": "feature",
+                        "settings": {
+                            "feature_heading": "Wraparound<br>Bumper Shell",
+                            "feature_text": "For maximum protection at every angle.",
+                            "feature_image": "shopify://shop_images/zugu__about-1.webp",
+                            "image_alt": "Lorem Ipsum"
+                        }
+                    }
+                },
+                "block_order": [
+                    "feature_epMHFW",
+                    "feature_VQY97q",
+                    "feature_4WHjP6",
+                    "feature_wKWAjV",
+                    "feature_jw3cCG",
+                    "feature_JcV8Qk",
+                    "feature_HUaYCA"
+                ],
+                "settings": {
+                    "heading": "COMING SOON:<br>THE ZUGU 360 CASE",
+                    "subheading": "The Zugu In Case of Death Case is a limited edition version of Zugu’s upcoming 360 case, our most versatile and advanced case ever.",
+                    "bottom_heading": "The In Case of Death Case",
+                    "bottom_subheading": "Bricks your iPad when you die, so you can take your secrets to the grave.",
+                    "button_link": "/",
+                    "button_text": "Buy Now",
+                    "footnote_heading": "Not planning to die ANYTIME soon?",
+                    "footnote_link": "/",
+                    "footnote_text": "Get notified about our upcoming 360 case",
+                    "footnote_title": "Explore THE UPCOMING 360 Case"
+                }
+            },
+            "global-footer": {
+                "type": "global-footer",
+                "blocks": {
+                    "footer_link_AejRaL": {
+                        "type": "footer_link",
+                        "settings": {
+                            "link_url": "/",
+                            "link_title": "Privacy Policy",
+                            "link_text": "Privacy Policy"
+                        }
+                    },
+                    "footer_link_RAjYPd": {
+                        "type": "footer_link",
+                        "settings": {
+                            "link_url": "/",
+                            "link_title": "Warranty & Returns",
+                            "link_text": "Warranty & Returns"
+                        }
+                    },
+                    "footer_link_j9G69j": {
+                        "type": "footer_link",
+                        "settings": {
+                            "link_url": "/",
+                            "link_title": "Giveaway",
+                            "link_text": "Giveaway"
+                        }
+                    },
+                    "footer_link_Wy6LBp": {
+                        "type": "footer_link",
+                        "settings": {
+                            "link_url": "/",
+                            "link_title": "Contact Us",
+                            "link_text": "Contact Us"
+                        }
+                    }
+                },
+                "block_order": [
+                    "footer_link_AejRaL",
+                    "footer_link_RAjYPd",
+                    "footer_link_j9G69j",
+                    "footer_link_Wy6LBp"
+                ],
+                "settings": {}
+            },
+            "global-modal": {
+                "type": "global-modal",
+                "settings": {
+                    "iframe_hero_vimeo_id": "1041124517",
+                    "iframe_hero_settings": "badge=0&app_id=58479",
+                    "iframe_hero_allow": "fullscreen;picture-in-picture;clipboard-write",
+                    "iframe_hero_title": "Demonstration Video",
+                    "close_button_title": "Close modal",
+                    "video_title": "Demonstration Video"
+                }
+            },
+            "contact-contact-us": {
+                "type": "contact-contact-us",
+                "settings": {
+                    "bg_top_left_alt": "Top Left Background",
+                    "bg_bottom_left_alt": "Bottom Left Background",
+                    "heading": "Contact Us",
+                    "subheading": "Email us from the physical plane or the spiritual hereafter at:",
+                    "email": "deathsupport@zugucase.com",
+                    "email_display": "DeathSupport@ZUGUcase.com",
+                    "email_title": "Contact Support"
+                }
+            },
+            "rules-the-rules": {
+                "type": "rules-the-rules",
+                "blocks": {
+                    "giveaway_rule_fkXgb8": {
+                        "type": "giveaway_rule",
+                        "settings": {
+                            "rule_text": "Eligibility: Open to legal residents of the United States and Canada (excluding Quebec), 18 or older. Canadian winners will be required to answer a skill-testing question to claim their prize. Void where prohibited or restricted by law."
+                        }
+                    },
+                    "giveaway_rule_g37bdT": {
+                        "type": "giveaway_rule",
+                        "settings": {
+                            "rule_text": "How to Enter: Follow @Zugu and @[Influencer] on Instagram, like this post, and tag a friend in the comments. Limit one entry per person."
+                        }
+                    },
+                    "giveaway_rule_4Dwjn7": {
+                        "type": "giveaway_rule",
+                        "settings": {
+                            "rule_text": "Winner Selection: A random winner will be selected on [date] and notified via direct message. Canadian winners must answer a skill-testing question to claim the prize."
+                        }
+                    },
+                    "giveaway_rule_CkViWw": {
+                        "type": "giveaway_rule",
+                        "settings": {
+                            "rule_text": "Prize: Zugu Ring and iPad kit (ARV: $1500). Zugu will cover shipping and applicable duties."
+                        }
+                    },
+                    "giveaway_rule_RfcHyy": {
+                        "type": "giveaway_rule",
+                        "settings": {
+                            "rule_text": "No Purchase Necessary."
+                        }
+                    },
+                    "giveaway_rule_YcCUET": {
+                        "type": "giveaway_rule",
+                        "settings": {
+                            "rule_text": "Disclaimer: This promotion is not sponsored, endorsed, or administered by, or associated with Instagram, Facebook, TikTok or YouTube."
+                        }
+                    }
+                },
+                "block_order": [
+                    "giveaway_rule_fkXgb8",
+                    "giveaway_rule_g37bdT",
+                    "giveaway_rule_4Dwjn7",
+                    "giveaway_rule_CkViWw",
+                    "giveaway_rule_RfcHyy",
+                    "giveaway_rule_YcCUET"
+                ],
+                "settings": {
+                    "heading": "Zugu Giveaway Rules"
+                }
+            },
+            "pp-privacy-list": {
+                "type": "pp-privacy-list",
+                "blocks": {
+                    "privacy_policy_paragraph_zdqmyE": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Introduction"
+                        }
+                    },
+                    "privacy_policy_paragraph_74zQ3w": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "We value your privacy and are committed to protecting how your personal information is handled. This Privacy Policy outlines how we safeguard your privacy as a user (“you,” “your,” “user(s)”) when you use the Zugu Ring and Zugu application, along with any other websites, mobile or digital applications, or services we may offer that link to this Privacy Policy (collectively referred to as the “Platform”). The Privacy Policy details the types of information we collect and monitor when you use our Platform, as well as how this information is used and shared."
+                        }
+                    },
+                    "privacy_policy_paragraph_wTVLxQ": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Your Consent"
+                        }
+                    },
+                    "privacy_policy_paragraph_khkWxh": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "By accessing or using the Zugu application, including downloading the mobile app, you consent to the collection, use, and disclosure of your personal information as described in this Privacy Policy, or as otherwise required or permitted by applicable law."
+                        }
+                    },
+                    "privacy_policy_paragraph_eFDHM3": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Scope of this Privacy Policy"
+                        }
+                    },
+                    "privacy_policy_paragraph_F6VtwY": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "This Privacy Policy addresses the collection of personally identifiable information (\"personal information\") when you access or use the Zugu Ring and Zugu application. It does not apply to the policies or practices of companies we do not own or control, or to individuals we do not employ."
+                        }
+                    },
+                    "privacy_policy_paragraph_qFWcip": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Personal information refers to details that identify, relate to, describe, or can reasonably be linked to you, either on its own or combined with other information we have. Examples of personal information include your name, contact details, and any information you provide when creating an account or profile on our application."
+                        }
+                    },
+                    "privacy_policy_paragraph_6LYGqg": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "We do not knowingly collect or solicit personal information from individuals under the age of 18, nor do we allow such persons to register for our products or services, including personalized features, product delivery, or feedback on activities within the application."
+                        }
+                    },
+                    "privacy_policy_paragraph_7Cfzzh": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Information That Is Collected Through Our Application"
+                        }
+                    },
+                    "privacy_policy_paragraph_wdzziC": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "We collect the personal information you voluntarily provide when you use our application."
+                        }
+                    },
+                    "privacy_policy_paragraph_XnJNkq": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Upon Sign-Up: When you create a user profile on our Platform, we gather your name, age, gender, email address, and any other relevant information you provide. You may also choose to share additional details such as payment information, location data, or other information relevant to our services and products."
+                        }
+                    },
+                    "privacy_policy_paragraph_GFjzmb": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "While Using Our Application: As you download and use our mobile application, we may collect information about your mobile device (including device and application identifiers), the referring web page, pages visited, IP address, and location (depending on the permissions you have granted). When we collect usage data from the application, it is used only in aggregate form and not in a way that identifies you personally."
+                        }
+                    },
+                    "privacy_policy_paragraph_TeXQMe": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Use of Our Smart Ring: If you use the Zugu Ring, you acknowledge that any information, data, or readings from the Zugu Ring will be automatically uploaded to your user account with us. This data may include heart rate, device identifiers, and location data (depending on permissions granted). If these automatically collected readings can identify you personally, they are considered personal information under this Privacy Policy."
+                        }
+                    },
+                    "privacy_policy_paragraph_eRYiWj": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Social Media Integration"
+                        }
+                    },
+                    "privacy_policy_paragraph_Kgrd7h": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "The Zugu Ring application has integrated social features (e.g., sharing specific content to social media), and we will only share content according to your preferences and upon triggering designated conditions, such as emergency notifications or pre-set permissions."
+                        }
+                    },
+                    "privacy_policy_paragraph_FwggfE": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "How We Use Your Information"
+                        }
+                    },
+                    "privacy_policy_paragraph_hxKyLf": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Data collected from the Zugu Ring is uploaded to your user account on the Zugu application and is used in aggregate to provide product features and improve the user experience. Personal information is used solely for the intended purposes of the Zugu Ring and application experience."
+                        }
+                    },
+                    "privacy_policy_paragraph_ciVAtY": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "User Consent and Opt-Out Options"
+                        }
+                    },
+                    "privacy_policy_paragraph_mWk4kY": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "You have control over certain data collection features or app permissions, such as location tracking, social media posting, or data collection. You can opt out of specific features or revoke app permissions at any time through the app settings."
+                        }
+                    },
+                    "privacy_policy_paragraph_J4EeJ7": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Data Retention and Deletion"
+                        }
+                    },
+                    "privacy_policy_paragraph_BWAe7i": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Personal data collected through the Zugu Ring application will be retained only as long as necessary for the purposes outlined. You may delete your account or request data deletion at any time by contacting DeathCaseSupport@zugucase.com."
+                        }
+                    },
+                    "privacy_policy_paragraph_r7NBpW": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Security of Your Information"
+                        }
+                    },
+                    "privacy_policy_paragraph_TrtKEr": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "We use secure encryption and access restrictions to protect your personal information, ensuring that it is accessed only by authorized personnel or partners necessary to operate the Zugu Ring and application. Your trust is important to us, and we take security seriously to safeguard your data."
+                        }
+                    },
+                    "privacy_policy_paragraph_whBFfX": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "Changes to This Policy"
+                        }
+                    },
+                    "privacy_policy_paragraph_TQLVVF": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "We may update this Privacy Policy periodically to address changes in the law, our data collection and usage practices, service features, or technological advancements. Your continued use of the Platform, services, and products after any updates to this Privacy Policy will indicate your acceptance and consent to those changes."
+                        }
+                    },
+                    "privacy_policy_paragraph_mFxVby": {
+                        "type": "privacy_policy_paragraph",
+                        "settings": {
+                            "text": "© 2024 Zugu, Inc. All Rights Reserved."
+                        }
+                    }
+                },
+                "block_order": [
+                    "privacy_policy_paragraph_zdqmyE",
+                    "privacy_policy_paragraph_74zQ3w",
+                    "privacy_policy_paragraph_wTVLxQ",
+                    "privacy_policy_paragraph_khkWxh",
+                    "privacy_policy_paragraph_eFDHM3",
+                    "privacy_policy_paragraph_F6VtwY",
+                    "privacy_policy_paragraph_qFWcip",
+                    "privacy_policy_paragraph_6LYGqg",
+                    "privacy_policy_paragraph_7Cfzzh",
+                    "privacy_policy_paragraph_wdzziC",
+                    "privacy_policy_paragraph_XnJNkq",
+                    "privacy_policy_paragraph_GFjzmb",
+                    "privacy_policy_paragraph_TeXQMe",
+                    "privacy_policy_paragraph_eRYiWj",
+                    "privacy_policy_paragraph_Kgrd7h",
+                    "privacy_policy_paragraph_FwggfE",
+                    "privacy_policy_paragraph_hxKyLf",
+                    "privacy_policy_paragraph_ciVAtY",
+                    "privacy_policy_paragraph_mWk4kY",
+                    "privacy_policy_paragraph_J4EeJ7",
+                    "privacy_policy_paragraph_BWAe7i",
+                    "privacy_policy_paragraph_r7NBpW",
+                    "privacy_policy_paragraph_TrtKEr",
+                    "privacy_policy_paragraph_whBFfX",
+                    "privacy_policy_paragraph_TQLVVF",
+                    "privacy_policy_paragraph_mFxVby"
+                ],
+                "settings": {
+                    "heading": "Zugu “In Case of Death” Ring<br>Privacy Policy"
+                }
+            },
+            "rr-embed": {
+                "type": "rr-embed",
+                "settings": {
+                    "iframe_settings": "badge=0&autoplay=1&player_id=0&loop=1&app_id=58479",
+                    "iframe_allow": "autoplay;fullscreen;picture-in-picture;clipboard-write",
+                    "iframe_style": "height:100vh;width:100vw;",
+                    "video_title": "Rickroll"
+                }
+            },
+            "size-introduction": {
+                "type": "size-introduction",
+                "blocks": {
+                    "ring_sizes_intro_item_FaANjm": {
+                        "type": "ring_sizes_intro_item",
+                        "settings": {
+                            "item_text": "Your finger"
+                        }
+                    },
+                    "ring_sizes_intro_item_W8VNta": {
+                        "type": "ring_sizes_intro_item",
+                        "settings": {
+                            "item_text": "A thin strip of paper (6–8 inches long)"
+                        }
+                    },
+                    "ring_sizes_intro_item_zkEQNK": {
+                        "type": "ring_sizes_intro_item",
+                        "settings": {
+                            "item_text": "A pen or marker"
+                        }
+                    },
+                    "ring_sizes_intro_item_KjtqGm": {
+                        "type": "ring_sizes_intro_item",
+                        "settings": {
+                            "item_text": "A ruler (preferably in millimeters)"
+                        }
+                    },
+                    "ring_sizes_intro_item_KgRzCn": {
+                        "type": "ring_sizes_intro_item",
+                        "settings": {
+                            "item_text": "Our In Case of Death Ring Sizing Guide"
+                        }
+                    }
+                },
+                "block_order": [
+                    "ring_sizes_intro_item_FaANjm",
+                    "ring_sizes_intro_item_W8VNta",
+                    "ring_sizes_intro_item_zkEQNK",
+                    "ring_sizes_intro_item_KjtqGm",
+                    "ring_sizes_intro_item_KgRzCn"
+                ],
+                "settings": {
+                    "back_link": "/",
+                    "back_title": "Go back home",
+                    "back_text": "Back",
+                    "heading": "Find the Perfect Fit<br>for your Zugu Ring",
+                    "intro_text": "Before you receive your Zugu Ring, let’s ensure you select the perfect size. With a thin strip of paper and our step-by-step guide, you can measure your finger and confidently select your ring size.",
+                    "what_youll_need_heading": "What You’ll Need:"
+                }
+            },
+            "size-guide": {
+                "type": "size-guide",
+                "blocks": {
+                    "ring_size_step_wrtaqP": {
+                        "type": "ring_size_step",
+                        "settings": {
+                            "step_title": "Step 1: Measure Your Finger",
+                            "step_details": "Wrap the paper around the base of your intended finger (typically your index, middle, or ring finger). Make sure the paper feels snug but not tight—the way you would want your ring to fit."
+                        }
+                    },
+                    "ring_size_step_QzxHCd": {
+                        "type": "ring_size_step",
+                        "settings": {
+                            "step_title": "Step 2: Mark and Measure",
+                            "step_details": "Use a pen or marker to mark where the paper overlaps with itself to create a complete circle. Lay the paper flat on a ruler and measure the length in millimeters (mm) from the starting point to the mark."
+                        }
+                    },
+                    "ring_size_step_d8yeff": {
+                        "type": "ring_size_step",
+                        "settings": {
+                            "step_title": "Step 3: Match to the Ring Sizing Chart",
+                            "step_details": "Choose the ring size that’s closest to your measurement and a little bigger. A proper fit will stay secure on your finger but slide off with ease when necessary."
+                        }
+                    },
+                    "ring_size_step_fatXPr": {
+                        "type": "ring_size_step",
+                        "settings": {
+                            "step_title": "Step 4: Send us your order!",
+                            "step_details": "Selecting the correct size ensures your In Case of Death Ring fits comfortably while performing its advanced functions."
+                        }
+                    }
+                },
+                "block_order": [
+                    "ring_size_step_wrtaqP",
+                    "ring_size_step_QzxHCd",
+                    "ring_size_step_d8yeff",
+                    "ring_size_step_fatXPr"
+                ],
+                "settings": {
+                    "heading": "Step-by-Step Sizing Guide",
+                    "chart_image": "shopify://shop_images/zugu__ring-chart.svg",
+                    "chart_alt": "Find your size"
+                }
+            },
+            "size-helpful-tips": {
+                "type": "size-helpful-tips",
+                "blocks": {
+                    "helpful_tips_tip_rVXt7p": {
+                        "type": "helpful_tips_tip",
+                        "settings": {
+                            "tip_text": "Measure More Than Once: Your fingers may change size slightly depending on the time of day or temperature. Measure multiple times for accuracy."
+                        }
+                    },
+                    "helpful_tips_tip_E8hNBb": {
+                        "type": "helpful_tips_tip",
+                        "settings": {
+                            "tip_text": "Consider Dominance: Your dominant hand tends to be slightly larger, so account for this when measuring."
+                        }
+                    },
+                    "helpful_tips_tip_McgpNE": {
+                        "type": "helpful_tips_tip",
+                        "settings": {
+                            "tip_text": ">Multiple Fingers: Try measuring your index, middle, and ring fingers. If you get slightly different results, use the average or opt for the larger size for comfort. Reach out if you need help! If you have any concerns or need additional guidance, please reach out to our support team at <a href=\"mailto:deathsupport@zugucase.com\" title=\"Email Support\">DeathSupport@ZUGUcase.com</a>. We’re here to help!"
+                        }
+                    }
+                },
+                "block_order": [
+                    "helpful_tips_tip_rVXt7p",
+                    "helpful_tips_tip_E8hNBb",
+                    "helpful_tips_tip_McgpNE"
+                ],
+                "settings": {
+                    "bg_image_top_alt": "Bottom Left Background",
+                    "bg_image_bottom_alt": "Top Right Background",
+                    "heading": "Helpful tips:",
+                    "reach_out_text": "Reach out if you need help!",
+                    "support_message": "If you have any concerns or need additional guidance, please reach out to our support team at",
+                    "support_email": "DeathSupport@ZUGUcase.com",
+                    "support_email_title": "We're here to help",
+                    "support_closing": "We’re here to help!"
+                }
             }
-        ]
+        },
+        "content_for_index": []
     }
-]
+}

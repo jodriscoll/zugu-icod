@@ -3,81 +3,80 @@
 {% endcomment %}
 
 <div class="sizes-guide">
-  <div class="container-limited">
-    <div class="sizes-guide__content">
-      <h2 class="--all-caps"
-          data-aos="fade-up">{{ section.settings.heading }}</h2>
-      <div class="sizes-guide__steps">
-        {% for step in section.blocks %}
-          <div class="sizes-guide__step"
-               data-aos="fade-in"
-               data-aos-delay="300">
-            <p class="--all-caps">{{ step.settings.step_title }}</p>
-            {% for detail in step.settings.step_details %}
-              <p>{{ detail }}</p>
-            {% endfor %}
-          </div>
-        {% endfor %}
-      </div>
-      <div class="sizes-guide__ring-guide"
-           data-aos="fade-up"
-           data-aos-delay="300">
-        <img src="{{ section.settings.chart_image | asset_url }}"
-             height=""
-             width=""
-             alt="{{ section.settings.chart_alt }}" />
-      </div>
+    <div class="container-limited">
+        <div class="sizes-guide__content">
+            <h2 class="--all-caps"
+                data-aos="fade-up">{{ section.settings.heading }}</h2>
+            <div class="sizes-guide__steps">
+                {% for step in section.blocks %}
+                    <div class="sizes-guide__step"
+                         data-aos="fade-in"
+                         data-aos-delay="300">
+                        <p class="--all-caps">{{ step.settings.step_title }}</p>
+                        {% for detail in step.settings.step_details %}
+                            <p>{{ detail }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="sizes-guide__ring-guide"
+                 data-aos="fade-up"
+                 data-aos-delay="300">
+                <img src="{{ section.settings.chart_image | asset_url }}"
+                     height=""
+                     width=""
+                     alt="{{ section.settings.chart_alt }}" />
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 {% schema %}
 {
-  "name": "Ring Size Guide",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Step-by-Step Sizing Guide"
-    },
-    {
-      "type": "image_picker",
-      "id": "chart_image",
-      "label": "Chart Image"
-    },
-    {
-      "type": "text",
-      "id": "chart_alt",
-      "label": "Chart Image Alt Text",
-      "default": "Find your size"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "ring_size_step",
-      "name": "Ring Size Step",
-      "settings": [
+    "name": "Ring Size Guide",
+    "settings": [
         {
-          "type": "text",
-          "id": "step_title",
-          "label": "Step Title",
-          "default": "Step 1: Measure Your Finger"
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Step-by-Step Sizing Guide"
         },
         {
-          "type": "textarea",
-          "id": "step_details",
-          "label": "Step Details",
-          "default": "Wrap the paper around the base of your intended finger (typically your index, middle, or ring finger). Make sure the paper feels snug but not tight—the way you would want your ring to fit."
+            "type": "image_picker",
+            "id": "chart_image",
+            "label": "Chart Image"
+        },
+        {
+            "type": "text",
+            "id": "chart_alt",
+            "label": "Chart Image Alt Text",
+            "default": "Find your size"
         }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Guide"
-    }
-  ]
+    ],
+    "blocks": [
+        {
+            "type": "ring_size_step",
+            "name": "Ring Size Step",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "step_title",
+                    "label": "Step Title",
+                    "default": "Step 1: Measure Your Finger"
+                },
+                {
+                    "type": "textarea",
+                    "id": "step_details",
+                    "label": "Step Details",
+                    "default": "Wrap the paper around the base of your intended finger (typically your index, middle, or ring finger). Make sure the paper feels snug but not tight—the way you would want your ring to fit."
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Default"
+        }
+    ]
 }
 {% endschema %}
