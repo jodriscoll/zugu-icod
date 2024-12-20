@@ -9,9 +9,9 @@
              data-aos-delay="300"
              data-aos-offset="-200">
             {% for link in section.blocks %}
-                <a href="{{ link.settings.link_url }}"
+                <a href="{{ link.settings.icod_footer_link_url }}"
                    class="footer__link"
-                   title="{{ link.settings.link_title }}">{{ link.settings.link_text }}</a>
+                   title="{{ link.settings.icod_footer_link_title }}">{{ link.settings.icod_footer_link_text }}</a>
             {% endfor %}
         </nav>
     </div>
@@ -28,19 +28,19 @@
             "settings": [
                 {
                     "type": "url",
-                    "id": "link_url",
+                    "id": "icod_footer_link_url",
                     "label": "Link URL",
                     "default": "/"
                 },
                 {
                     "type": "text",
-                    "id": "link_title",
+                    "id": "icod_footer_link_title",
                     "label": "Link Title",
                     "default": "Link Title"
                 },
                 {
                     "type": "text",
-                    "id": "link_text",
+                    "id": "icod_footer_link_text",
                     "label": "Link Text",
                     "default": "Link Text"
                 }

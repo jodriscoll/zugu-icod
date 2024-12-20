@@ -6,11 +6,133 @@
     <div class="modal__box">
         <button class="modal__close"
                 id="js-modal-close"
-                title="{{ section.settings.close_button_title }}"></button>
+                title="{{ section.settings.icod_modal_close_button_title }}"></button>
         <div class="modal__oembed"></div>
     </div>
-    <!-- <div><iframe src="https://player.vimeo.com/video/{{ section.settings.iframe_hero_vimeo_id }}?{{ section.settings.iframe_hero_settings }}" frameborder="0" allow="{{ section.settings.iframe_hero_allow }}" title="{{ section.settings.iframe_hero_title }}"></iframe></div> -->
+    <!-- <div><iframe src="https://player.vimeo.com/video/{{ section.settings.icod_modal_iframe_hero_vimeo_id }}?{{ section.settings.icod_modal_iframe_hero_settings }}" frameborder="0" allow="{{ section.settings.icod_modal_iframe_hero_allow }}" title="{{ section.settings.icod_modal_iframe_hero_title }}"></iframe></div> -->
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function playVideoModal(elementId) {
+            const debug = false;
+            const element = document.getElementById(elementId);
+            const modal = document.getElementById('js-modal');
+            const modalOembed = modal.querySelector('.modal__oembed');
+            const modalClose = document.getElementById('js-modal-close');
+
+            // Access the background video iframe by ID
+            const backgroundIframe = document.getElementById('js-background-video');
+
+            // Initialize the Vimeo Player for the background video
+            const backgroundPlayer = new Vimeo.Player(backgroundIframe);
+
+            if (element && modal && modalOembed && modalClose) {
+                element.addEventListener('click', () => {
+                    if (debug) console.log(`${elementId} button clicked`);
+
+                    // Pause the background video when modal is opened
+                    if (backgroundPlayer) {
+                        backgroundPlayer.pause().then(() => {
+                            if (debug) console.log('Background video paused.');
+                        }).catch((error) => {
+                            if (debug) console.error('Error pausing background video:', error);
+                        });
+                    }
+
+                    // Add the "--opened" class to the modal
+                    modal.classList.add('--opened');
+                    if (debug) console.log('Modal opened.');
+
+                    // Find the HTML comment directly inside the modal
+                    const childNodes = Array.from(modal.childNodes);
+                    const commentNode = childNodes.find(node => node.nodeType === Node.COMMENT_NODE);
+
+                    if (commentNode) {
+                        if (debug) console.log('Found HTML comment:', commentNode.nodeValue);
+
+                        let commentContent = commentNode.nodeValue.trim();
+
+                        // Check if the comment contains a <div> with the iframe
+                        if (commentContent.startsWith('<div') && commentContent.endsWith('</div>')) {
+                            if (debug) console.log('Extracted content from comment:', commentContent);
+
+                            // Insert the extracted <div> into the modal
+                            modalOembed.innerHTML = commentContent;
+
+                            // Add a class for styling
+                            const iframeWrapper = modalOembed.querySelector('div');
+
+                            iframeWrapper.classList.add('responsive-iframe-wrapper');
+
+                            const iframe = iframeWrapper.querySelector('iframe');
+
+                            if (iframe) {
+                                iframe.classList.add('responsive-iframe');
+                            }
+
+                            // Clear the original HTML comment
+                            commentNode.nodeValue = '';
+                            if (debug) console.log('Content moved to modal__oembed and comment cleared.');
+                        } else {
+                            if (debug) console.error('Comment does not contain valid <div> content.');
+                        }
+                    } else {
+                        if (debug) console.error('No HTML comment found as a child of the modal.');
+                    }
+                });
+
+                modalClose.addEventListener('click', () => {
+                    if (modal.classList.contains('--opened')) {
+                        if (debug) console.log('Close button clicked');
+
+                        // Remove the "--opened" class from the modal
+                        modal.classList.remove('--opened');
+                        if (debug) console.log('Modal closed.');
+
+                        // Resume the background video when modal is closed
+                        if (backgroundPlayer) {
+                            backgroundPlayer.play().then(() => {
+                                if (debug) console.log('Background video resumed.');
+                            }).catch((error) => {
+                                if (debug) console.error('Error resuming background video:', error);
+                            });
+                        }
+
+                        // Find the HTML comment directly inside the modal
+                        const childNodes = Array.from(modal.childNodes);
+                        const commentNode = childNodes.find(node => node.nodeType === Node.COMMENT_NODE);
+
+                        if (commentNode) {
+                            if (debug) console.log('Found HTML comment for restoring content:', commentNode.nodeValue);
+
+                            // Get the <div> with the iframe currently in the modal
+                            const iframeDiv = modalOembed.innerHTML.trim();
+
+                            // Move the <div> back into the HTML comment
+                            commentNode.nodeValue = ` ${iframeDiv} `;
+                            if (debug) console.log('Content moved back to HTML comment.');
+
+                            // Clear the modal content
+                            modalOembed.innerHTML = '';
+                            if (debug) console.log('Modal__oembed content cleared.');
+                        } else {
+                            if (debug) console.error('No HTML comment found as a child of the modal.');
+                        }
+                    }
+                });
+            } else {
+                if (debug) console.error('One or more required elements not found:', {
+                    element,
+                    modal,
+                    modalOembed,
+                    modalClose,
+                });
+            }
+        }
+        playVideoModal('js-play-video');
+    });
+</script>
 
 {% schema %}
 {
@@ -18,37 +140,37 @@
     "settings": [
         {
             "type": "text",
-            "id": "iframe_hero_vimeo_id",
+            "id": "icod_modal_iframe_hero_vimeo_id",
             "label": "Vimeo Iframe ID",
             "default": "1041124517"
         },
         {
             "type": "text",
-            "id": "iframe_hero_settings",
+            "id": "icod_modal_iframe_hero_settings",
             "label": "Iframe Src Settings",
             "default": "badge=0&app_id=58479"
         },
         {
             "type": "text",
-            "id": "iframe_hero_allow",
+            "id": "icod_modal_iframe_hero_allow",
             "label": "Iframe Allow Attributes",
             "default": "fullscreen;picture-in-picture;clipboard-write"
         },
         {
             "type": "text",
-            "id": "iframe_hero_title",
+            "id": "icod_modal_iframe_hero_title",
             "label": "Iframe Title",
             "default": "Demonstration Video"
         },
         {
             "type": "text",
-            "id": "close_button_title",
+            "id": "icod_modal_close_button_title",
             "label": "Close Button Title",
             "default": "Close modal"
         },
         {
             "type": "text",
-            "id": "video_title",
+            "id": "icod_modal_video_title",
             "label": "Video Title",
             "default": "Demonstration Video"
         }

@@ -4,14 +4,14 @@
 
 <div class="helpful-tips --flex-column">
     <div class="backgrounds__container">
-        <img src="{{ section.settings.bg_image_top | asset_url }}"
+        <img src="{{ section.settings.bg_image_top | image_url: width: 567, height: 800 }}"
              height=""
              width=""
              class="backgrounds__bg-right"
              data-aos="fade-left"
              data-aos-delay="300"
              alt="{{ section.settings.bg_image_top_alt }}" />
-        <img src="{{ section.settings.bg_image_bottom | asset_url }}"
+        <img src="{{ section.settings.bg_image_bottom | image_url: width: 512, height: 250 }}"
              height=""
              width=""
              class="backgrounds__bg-left"
@@ -104,7 +104,7 @@
     "blocks": [
         {
             "type": "helpful_tips_tip",
-            "name": "Helpful Tips - Tip",
+            "name": "Helpful Tip",
             "settings": [
                 {
                     "type": "textarea",

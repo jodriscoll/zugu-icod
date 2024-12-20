@@ -12,6 +12,7 @@ $footer-height-desktop: 145px;
     --color-button-outline: #fff;
     --color-button-filled: #d9d9d9;
     --color-border-dark: #403F40;
+    --color-border-subtle: #2D2D2D;
     //
     --font-primary: 'DM Mono', 'Arial', sans-serif;
     //
@@ -52,6 +53,7 @@ $footer-height-desktop: 145px;
     --margin-massive: 280px;
     //
     --radius-small: 5px;
+    --radius-medium: 10px;
     --radius-large: 25px;
     //
     --max-width-content: 406px;
@@ -182,7 +184,7 @@ section {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, .8);
+        background: rgba(0, 0, 0, .4);
         z-index: 1;
     }
 
@@ -224,7 +226,7 @@ section {
         h1 {
             font-size: clamp(var(--font-size-large), 5vw, var(--font-size-larger));
             font-weight: var(--font-weight-light);
-            margin-bottom: var(--margin-medium);
+            margin-bottom: var(--spacing-regular);
             line-height: var(--line-height-tight);
 
             .blinking-period {
@@ -235,7 +237,7 @@ section {
         p {
             max-width: 335px;
             font-size: var(--font-size-regular);
-            margin-bottom: var(--margin-medium);
+            margin-bottom: var(--spacing-regular);
 
             &:last-of-type {
                 margin-bottom: 0;
@@ -312,14 +314,14 @@ section {
     }
 
     .container-limited {
-        gap: 50px;
-
         @media screen and (max-width: $breakpoint-lg) {
             flex-direction: column;
+            gap: 80px;
         }
         @media screen and (min-width: $breakpoint-lg) {
             flex-direction: row;
             justify-content: space-between;
+            gap: 100px;
         }
     }
 
@@ -558,10 +560,11 @@ section {
     &__step-visual {
         display: flex;
         justify-content: center;
-        height: 270px;
+        height: 307px;
         margin: 0 auto var(--spacing-small);
 
         img {
+            height: 100%;
             margin: auto;
             max-width: 100%;
         }
@@ -666,8 +669,8 @@ section {
     }
 
     &__feature-image {
-        border: 1px solid var(--color-mono);
-        border-radius: var(--radius-large);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-medium);
         flex-shrink: 0;
         max-width: 800px;
         width: 100%;
@@ -707,18 +710,11 @@ section {
 
 // Page: Ring Size Guide
 .sizes-introduction {
-    background: url('https://assets.codepen.io/9620/zugu__sizes-bg.png') no-repeat bottom right transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-
-    @media screen and (max-width: $breakpoint-lg) {
-        background-size: 50%;
-    }
-    @media screen and (min-width: $breakpoint-lg) {
-        background-size: 928px;
-    }
+    overflow: hidden;
 
     .container-limited {
         @media screen and (max-width: $breakpoint-lg) {
@@ -726,6 +722,31 @@ section {
         }
         @media screen and (min-width: $breakpoint-lg) {
             padding: var(--spacing-content-desktop) var(--spacing-content-desktop) 180px;
+        }
+    }
+
+    .backgrounds__bg-top {
+        @media screen and (max-width: $breakpoint-lg) {
+            height: 125px;
+            bottom: 160px;
+            top: auto;
+            right: 45px;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+            height: 300px;
+            top: 70px;
+            right: 20%;
+        }
+    }
+
+    .backgrounds__bg-bottom {
+        @media screen and (max-width: $breakpoint-lg) {
+            height: 150px;
+            right: -100px;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+            height: 338px;
+            right: 10%;
         }
     }
 
@@ -857,13 +878,17 @@ section {
             &:first-of-type {
                 margin-bottom: var(--spacing-medium);
             }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
     }
 
     &__ring-guide {
         display: flex;
         justify-content: center;
-        margin-top: var(--margin-xsmall);
+        margin-top: 80px;
 
         img {
             margin: auto;
@@ -883,6 +908,26 @@ section {
     }
     @media screen and (min-width: $breakpoint-lg) {
         padding: var(--spacing-content-desktop) var(--spacing-content-desktop) 0;
+    }
+
+    .backgrounds__bg-right {
+        @media screen and (max-width: $breakpoint-lg) {
+            height: 500px;
+            right: -100px;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+            height: 800px;
+            right: -80px;
+        }
+    }
+
+    .backgrounds__bg-left {
+        @media screen and (max-width: $breakpoint-lg) {
+            height: 150px;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+            height: 250px;
+        }
     }
 
     &__content {
@@ -1010,6 +1055,26 @@ section {
     .backgrounds__container {
         height: calc(100vh - #{$footer-height-desktop}); // full viewport height - height of footer
         margin-bottom: auto;
+    }
+
+    .backgrounds__bg-right {
+        @media screen and (max-width: $breakpoint-lg) {
+            height: 500px;
+            right: -100px;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+            height: 800px;
+            right: -80px;
+        }
+    }
+
+    .backgrounds__bg-left {
+        @media screen and (max-width: $breakpoint-lg) {
+            height: 150px;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+            height: 250px;
+        }
     }
 
     &__content {
@@ -1313,6 +1378,9 @@ section {
     margin-bottom: auto;
 
     &__slide {
+        border-radius: var(--radius-medium);;
+        border: 1px solid var(--color-border-subtle);
+        overflow: hidden;
         display: flex;
         position: absolute;
         top: -100%;
@@ -1454,7 +1522,9 @@ section {
     }
 
     &__bg-left,
-    &__bg-right {
+    &__bg-right,
+    &__bg-top,
+    &__bg-bottom {
         position: absolute;
     }
 
@@ -1478,6 +1548,16 @@ section {
         @media screen and (max-width: $breakpoint-lg) {
             width: 400px;
         }
+    }
+
+    &__bg-top {
+        top: 0;
+        right: 0;
+    }
+
+    &__bg-bottom {
+        bottom: 0;
+        right: 0;
     }
 }
 .navigation {

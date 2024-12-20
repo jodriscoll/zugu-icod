@@ -16,7 +16,7 @@
                 {% if step.type == 'how_it_works_step' %}
                     <div class="how-it-works__step">
                         <div class="how-it-works__step-visual">
-                            <img src="{{ step.settings.step_image_url | asset_url }}"
+                            <img src="{{ step.settings.step_image_url | image_url: width: 307, height: 307 }}"
                                  height=""
                                  width=""
                                  alt="{{ step.settings.step_image_alt }}"
@@ -68,13 +68,13 @@
                     "type": "text",
                     "id": "step_image_alt",
                     "label": "Image Alt Text",
-                    "default": "Step 1"
+                    "default": "Step Visual Alt"
                 },
                 {
                     "type": "text",
                     "id": "step_title",
                     "label": "Step Title",
-                    "default": "Step 1"
+                    "default": "Step Title"
                 },
                 {
                     "type": "textarea",

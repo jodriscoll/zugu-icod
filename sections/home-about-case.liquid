@@ -21,7 +21,7 @@
                         <p data-aos="fade-right"
                            data-aos-delay="250">{{ feature.settings.feature_text }}</p>
                     </div>
-                    <img src="{{ feature.settings.feature_image | asset_url }}"
+                    <img src="{{ feature.settings.feature_image | image_url: width: 800, height: 476 }}"
                          height=""
                          width=""
                          class="about-case__feature-image"

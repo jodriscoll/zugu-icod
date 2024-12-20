@@ -70,7 +70,7 @@
             {% for block in section.blocks %}
                 {% if block.type == 'product_showcase_slide' %}
                     <div class="slider__slide {% if forloop.first %}--current{% endif %}">
-                        <img src="{{ block.settings.product_slide_image | asset_url }}"
+                        <img src="{{ block.settings.product_slide_image | image_url: width: 900, height: 900 }}"
                              height=""
                              width=""
                              class="product-showcase__image"
@@ -114,6 +114,96 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function accordionExpand(elementId) {
+            const accordion = document.getElementById(elementId);
+
+            if (accordion) {
+                const triggers = accordion.querySelectorAll('.accordion__triggers');
+
+                triggers.forEach(trigger => {
+                    trigger.addEventListener('click', () => {
+                        const isOpen = accordion.getAttribute('data-accordion') === 'opened';
+
+                        accordion.setAttribute('data-accordion', isOpen ? 'closed' : 'opened');
+                    });
+                });
+            }
+        }
+        function simpleSlider(sliderId) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return; // If no slider, don't proceed
+
+            const slides = slider.querySelectorAll('.slider__slide');
+            const dots = slider.querySelectorAll('.slider__pagination-dot');
+            const leftArrow = slider.querySelector('.slider__arrow.--left button');
+            const rightArrow = slider.querySelector('.slider__arrow.--right button');
+
+            let currentIndex = 0;
+
+            function updateSlider(newIndex) {
+                // Remove the current class from all slides and dots
+                slides.forEach(slide => slide.classList.remove('--current'));
+                dots.forEach(dot => dot.classList.remove('--current'));
+
+                // Add the current class to the new slide and dot
+                slides[newIndex].classList.add('--current');
+                dots[newIndex].classList.add('--current');
+
+                currentIndex = newIndex;
+                updateArrowState();
+            }
+
+            function updateArrowState() {
+                // Disable the left arrow if at the first slide
+                if (currentIndex === 0) {
+                    leftArrow.disabled = true;
+                } else {
+                    leftArrow.disabled = false;
+                }
+
+                // Disable the right arrow if at the last slide
+                if (currentIndex === slides.length - 1) {
+                    rightArrow.disabled = true;
+                } else {
+                    rightArrow.disabled = false;
+                }
+            }
+
+            function attachEventListeners() {
+                // Add click events for dots
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        if (index !== currentIndex) {
+                            updateSlider(index);
+                        }
+                    });
+                });
+
+                // Add click event for left arrow
+                leftArrow.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        updateSlider(currentIndex - 1);
+                    }
+                });
+
+                // Add click event for right arrow
+                rightArrow.addEventListener('click', () => {
+                    if (currentIndex < slides.length - 1) {
+                        updateSlider(currentIndex + 1);
+                    }
+                });
+            }
+
+            attachEventListeners();     // Initialize event listeners
+            updateSlider(currentIndex); // Ensure the initial slide and arrow state are set
+        }
+        accordionExpand('js-accordion');
+        simpleSlider('js-simple-slider');
+    });
+</script>
+
 {% schema %}
 {
     "name": "Product Showcase",
@@ -138,15 +228,15 @@
         },
         {
             "type": "text",
-            "id": "color",
-            "label": "Color",
-            "default": "Funeral Black"
-        },
-        {
-            "type": "text",
             "id": "color_label",
             "label": "Color Label",
             "default": "Color:"
+        },
+        {
+            "type": "text",
+            "id": "color",
+            "label": "Color Text",
+            "default": "Funeral Black"
         },
         {
             "type": "url",
@@ -200,7 +290,7 @@
             "type": "text",
             "id": "footnote_heading",
             "label": "Footnote Heading",
-            "default": "Not planning to die ANYTIME soon?"
+            "default": "Not planning to die anytime soon?"
         },
         {
             "type": "url",
@@ -217,8 +307,8 @@
         {
             "type": "text",
             "id": "footnote_title",
-            "label": "Footnote Title",
-            "default": "Explore THE UPCOMING 360 Case"
+            "label": "Footnote Link Title",
+            "default": "Explore The Upcoming 360 Case"
         },
         {
             "type": "text",
