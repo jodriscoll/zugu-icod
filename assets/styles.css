@@ -293,6 +293,7 @@ section {
     max-width: var(--max-width-content);
     width: 100%;
     position: relative;
+    flex-shrink: 0;
     z-index: 1;
 }
 .product-showcase__content h2 {
@@ -1214,45 +1215,30 @@ section {
 }
 .slider {
     position: relative;
-    overflow: hidden;
     margin-bottom: auto;
-}
-.slider__slide {
-    border-radius: var(--radius-medium);
-    border: 1px solid var(--color-border-subtle);
-    overflow: hidden;
-    display: flex;
-    position: absolute;
-    top: -100%;
-}
-.slider__slide.--current {
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    top: 0;
-}
-.slider__slide.--current img {
-    opacity: 1;
+    max-width: 900px;
 }
 .slider__slide img {
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--color-border-subtle);
+    box-sizing: border-box;
     position: relative;
     margin: auto;
-    opacity: 0;
-    transition: opacity var(--animate-accordion);
     max-width: 900px;
     width: 100%;
 }
-.slider__slide span {
-    font-size: var(--font-size-medium);
-    font-style: italic;
-    display: block;
-    width: auto;
-    margin: auto;
-}
 .slider__arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+}
+@media screen and (max-width: 1100px) {
+    .slider__arrow {
+        top: calc(50% - 50px);
+    }
+}
+@media screen and (min-width: 1100px) {
+    .slider__arrow {
+        top: 50%;
+    }
 }
 .slider__arrow button {
     cursor: pointer;
@@ -1267,35 +1253,28 @@ section {
 .slider__arrow button svg {
     height: 15px;
 }
-.slider__arrow button[disabled] {
-    cursor: not-allowed;
-    opacity: 0.25;
-}
-.slider__arrow.--left {
-    left: 0;
-    transform: rotate(90deg);
-}
 @media screen and (max-width: 1100px) {
     .slider__arrow.--left {
-        left: -25px;
+        left: -50px;
+        transform: rotate(90deg);
     }
 }
 @media screen and (min-width: 1100px) {
     .slider__arrow.--left {
-        left: 0;
+        left: -60px;
+        transform: rotate(90deg) translateY(-50%);
     }
-}
-.slider__arrow.--right {
-    transform: rotate(-90deg);
 }
 @media screen and (max-width: 1100px) {
     .slider__arrow.--right {
-        right: -25px;
+        right: -50px;
+        transform: rotate(-90deg);
     }
 }
 @media screen and (min-width: 1100px) {
     .slider__arrow.--right {
-        right: 0;
+        right: -60px;
+        transform: rotate(-90deg) translateY(-50%);
     }
 }
 .slider__pagination {
@@ -1385,7 +1364,6 @@ section {
 }
 .navigation {
     margin-right: auto;
-    position: relative;
     display: flex;
     position: fixed;
     left: -165px;

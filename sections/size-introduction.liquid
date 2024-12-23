@@ -3,128 +3,128 @@
 {% endcomment %}
 
 <div class="sizes-introduction">
-    <div class="backgrounds__container">
-        <img src="{{ section.settings.icod_size_bg_image_sizes_intro_top | image_url: width: 280, height: 300 }}"
-             class="backgrounds__bg-top"
-             height=""
-             width=""
-             data-aos="fade-down"
-             data-aos-delay="300"
-             alt="{{ section.settings.icod_size_bg_image_sizes_intro_top_alt }}Top Background" />
-        <img src="{{ section.settings.icod_size_bg_image_sizes_intro_bottom | image_url: width: 768, height: 338 }}"
-             class="backgrounds__bg-bottom"
-             height=""
-             width=""
-             data-aos="fade-up"
-             data-aos-delay="300"
-             alt="{{ section.settings.icod_size_bg_image_sizes_intro_bottom_alt }}Bottom Background" />
+  <div class="backgrounds__container">
+    <img src="{{ section.settings.icod_size_bg_image_sizes_intro_top | image_url: width: 280, height: 300 }}"
+         class="backgrounds__bg-top"
+         height=""
+         width=""
+         data-aos="fade-down"
+         data-aos-delay="300"
+         alt="{{ section.settings.icod_size_bg_image_sizes_intro_top_alt }}Top Background" />
+    <img src="{{ section.settings.icod_size_bg_image_sizes_intro_bottom | image_url: width: 768, height: 338 }}"
+         class="backgrounds__bg-bottom"
+         height=""
+         width=""
+         data-aos="fade-up"
+         data-aos-delay="300"
+         alt="{{ section.settings.icod_size_bg_image_sizes_intro_bottom_alt }}Bottom Background" />
+  </div>
+  <div class="container-limited">
+    <div class="sizes-introduction__content">
+      <div data-aos="fade-right"
+           data-aos-delay="50">
+        <a href="{{ section.settings.icod_size_back_link }}"
+           class="sizes-introduction__back-button --all-caps"
+           title="{{ section.settings.icod_size_back_title }}">{{ section.settings.icod_size_back_text }}</a>
+      </div>
+      <h1 class="--all-caps"
+          data-aos="fade-right"
+          data-aos-delay="150">{{ section.settings.icod_size_heading }}</h1>
+      <p data-aos="fade-right"
+         data-aos-delay="200">{{ section.settings.icod_size_intro_text }}</p>
+      <p data-aos="fade-right"
+         data-aos-delay="250">{{ section.settings.icod_size_what_youll_need_heading }}</p>
+      <ul>
+        {% for item in section.blocks %}
+          <li data-aos="fade-right"
+              data-aos-delay="300">{{ item.settings.icod_size_item_text }}</li>
+        {% endfor %}
+      </ul>
     </div>
-    <div class="container-limited">
-        <div class="sizes-introduction__content">
-            <div data-aos="fade-right"
-                 data-aos-delay="50">
-                <a href="{{ section.settings.icod_size_back_link }}"
-                   class="sizes-introduction__back-button --all-caps"
-                   title="{{ section.settings.icod_size_back_title }}">{{ section.settings.icod_size_back_text }}</a>
-            </div>
-            <h1 class="--all-caps"
-                data-aos="fade-right"
-                data-aos-delay="150">{{ section.settings.icod_size_heading }}</h1>
-            <p data-aos="fade-right"
-               data-aos-delay="200">{{ section.settings.icod_size_intro_text }}</p>
-            <p data-aos="fade-right"
-               data-aos-delay="250">{{ section.settings.icod_size_what_youll_need_heading }}</p>
-            <ul>
-                {% for item in section.blocks %}
-                    <li data-aos="fade-right"
-                        data-aos-delay="300">{{ item.settings.icod_size_item_text }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+  </div>
 </div>
 
 {% schema %}
 {
-    "name": "Ring Sizes Introduction",
-    "settings": [
+  "name": "Ring Sizes Introduction",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icod_size_bg_image_sizes_intro_top",
+      "label": "Background Image Top"
+    },
+    {
+      "type": "text",
+      "id": "icod_size_bg_image_sizes_intro_top_alt",
+      "label": "Background Image Top Alt Text",
+      "default": "Background Image Top"
+    },
+    {
+      "type": "image_picker",
+      "id": "icod_size_bg_image_sizes_intro_bottom",
+      "label": "Background Image Bottom"
+    },
+    {
+      "type": "text",
+      "id": "icod_size_bg_image_sizes_intro_bottom_alt",
+      "label": "Background Image Bottom Alt Text",
+      "default": "Background Image Bottom"
+    },
+    {
+      "type": "url",
+      "id": "icod_size_back_link",
+      "label": "Back Link",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "icod_size_back_title",
+      "label": "Back Button Title",
+      "default": "Go back home"
+    },
+    {
+      "type": "text",
+      "id": "icod_size_back_text",
+      "label": "Back Button Text",
+      "default": "Back"
+    },
+    {
+      "type": "text",
+      "id": "icod_size_heading",
+      "label": "Heading",
+      "default": "Find the Perfect Fit<br/>for your Zugu Ring"
+    },
+    {
+      "type": "textarea",
+      "id": "icod_size_intro_text",
+      "label": "Introduction Text",
+      "default": "Before you receive your Zugu Ring, let’s ensure you select the perfect size. With a thin strip of paper and our step-by-step guide, you can measure your finger and confidently select your ring size."
+    },
+    {
+      "type": "text",
+      "id": "icod_size_what_youll_need_heading",
+      "label": "What You'll Need Heading",
+      "default": "What You’ll Need:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ring_sizes_intro_item",
+      "name": "List Item",
+      "settings": [
         {
-            "type": "image_picker",
-            "id": "icod_size_bg_image_sizes_intro_top",
-            "label": "Background Image Top"
-        },
-        {
-            "type": "text",
-            "id": "icod_size_bg_image_sizes_intro_top_alt",
-            "label": "Background Image Top Alt Text",
-            "default": "Background Image Top"
-        },
-        {
-            "type": "image_picker",
-            "id": "icod_size_bg_image_sizes_intro_bottom",
-            "label": "Background Image Bottom"
-        },
-        {
-            "type": "text",
-            "id": "icod_size_bg_image_sizes_intro_bottom_alt",
-            "label": "Background Image Bottom Alt Text",
-            "default": "Background Image Bottom"
-        },
-        {
-            "type": "url",
-            "id": "icod_size_back_link",
-            "label": "Back Link",
-            "default": "/"
-        },
-        {
-            "type": "text",
-            "id": "icod_size_back_title",
-            "label": "Back Button Title",
-            "default": "Go back home"
-        },
-        {
-            "type": "text",
-            "id": "icod_size_back_text",
-            "label": "Back Button Text",
-            "default": "Back"
-        },
-        {
-            "type": "text",
-            "id": "icod_size_heading",
-            "label": "Heading",
-            "default": "Find the Perfect Fit<br/>for your Zugu Ring"
-        },
-        {
-            "type": "textarea",
-            "id": "icod_size_intro_text",
-            "label": "Introduction Text",
-            "default": "Before you receive your Zugu Ring, let’s ensure you select the perfect size. With a thin strip of paper and our step-by-step guide, you can measure your finger and confidently select your ring size."
-        },
-        {
-            "type": "text",
-            "id": "icod_size_what_youll_need_heading",
-            "label": "What You'll Need Heading",
-            "default": "What You’ll Need:"
+          "type": "text",
+          "id": "icod_size_item_text",
+          "label": "Item Text",
+          "default": "List Item Text"
         }
-    ],
-    "blocks": [
-        {
-            "type": "ring_sizes_intro_item",
-            "name": "List Item",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "icod_size_item_text",
-                    "label": "Item Text",
-                    "default": "List Item Text"
-                }
-            ]
-        }
-    ],
-    "presets": [
-        {
-            "name": "Default"
-        }
-    ]
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default"
+    }
+  ]
 }
 {% endschema %}

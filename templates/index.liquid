@@ -1,12 +1,26 @@
 {% comment %}
-    Page: Homepage
+    Page Template: ICOD Homepage
 {% endcomment %}
 
+{% layout none %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% section 'global-head' %}
+</head>
+<body>
+{% section 'global-body-start' %}
+
 <section id="homepage">
-    {% section 'global-modal' %}
-    {% section 'home-hero' %}
-    {% section 'home-product-showcase' %}
-    {% section 'home-how-it-works' %}
-    {% section 'home-about-case' %}
-    {% section 'global-footer' %}
+  {% section 'global-modal' %}
+  {% section 'hero' %}
+  {% section 'product-showcase' %}
+  {% section 'how-it-works' %}
+  {% section 'about-case' %}
+  {% section 'global-footer' %}
 </section>
+
+{% section 'global-body-end' %}
+</body>
+</html>

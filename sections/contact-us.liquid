@@ -1,0 +1,96 @@
+{% comment %}
+    Section: Contact Us
+{% endcomment %}
+
+<div class="contact-us --flex-column">
+  <div class="backgrounds__container">
+    <img src="{{ section.settings.icod_contact_us_bg_image_top_right | image_url: width: 567, height: 800 }}"
+         height=""
+         width=""
+         class="backgrounds__bg-right"
+         data-aos="fade-left"
+         data-aos-delay="300"
+         alt="{{ section.settings.icod_contact_us_bg_image_top_right_alt }}" />
+    <img src="{{ section.settings.icod_contact_us_bg_image_bottom_left | image_url: width: 512, height: 250 }}"
+         height=""
+         width=""
+         class="backgrounds__bg-left"
+         data-aos="fade-right"
+         data-aos-delay="300"
+         alt="{{ section.settings.icod_contact_us_bg_image_bottom_left_alt }}" />
+  </div>
+  <div class="container-limited --flex-column">
+    <div class="contact-us__content">
+      <h2 class="--all-caps"
+          data-aos="fade-up"
+          data-aos-delay="100">{{ section.settings.icod_contact_us_heading }}</h2>
+      <p data-aos="fade-up"
+         data-aos-delay="200">{{ section.settings.icod_contact_us_subheading }}</p>
+      <div data-aos="fade-up"
+           data-aos-delay="300">
+        <a href="mailto:{{ section.settings.icod_contact_us_email }}"
+           title="{{ section.settings.icod_contact_us_email_title }}">{{ section.settings.icod_contact_us_email_display }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Us",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icod_contact_us_bg_image_top_right",
+      "label": "Top Background Image"
+    },
+    {
+      "type": "text",
+      "id": "icod_contact_us_bg_image_top_right_alt",
+      "label": "Top Left Background Alt Text",
+      "default": "Top Left Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "icod_contact_us_bg_image_bottom_left",
+      "label": "Bottom Background Image"
+    },
+    {
+      "type": "text",
+      "id": "icod_contact_us_bg_image_bottom_left_alt",
+      "label": "Bottom Left Background Alt Text",
+      "default": "Bottom Left Background"
+    },
+    {
+      "type": "text",
+      "id": "icod_contact_us_heading",
+      "label": "Heading",
+      "default": "Contact Us"
+    },
+    {
+      "type": "textarea",
+      "id": "icod_contact_us_subheading",
+      "label": "Subheading",
+      "default": "Email us from the physical plane or the spiritual hereafter at:"
+    },
+    {
+      "type": "text",
+      "id": "icod_contact_us_email",
+      "label": "Email Address",
+      "default": "deathsupport@zugucase.com"
+    },
+    {
+      "type": "text",
+      "id": "icod_contact_us_email_display",
+      "label": "Email Display Text",
+      "default": "DeathSupport@ZUGUcase.com"
+    },
+    {
+      "type": "text",
+      "id": "icod_contact_us_email_title",
+      "label": "Email Link Title",
+      "default": "Contact Support"
+    }
+  ]
+}
+{% endschema %}

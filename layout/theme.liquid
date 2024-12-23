@@ -1,60 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{{ page_title }}</title>
+  <meta charset="UTF-8">
+  <title>{{ page_title }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {% if settings.favicon_enable %}
     <link rel="shortcut icon" href="{{ 'favicon.webp' | asset_url }}" type="image/png">
-    <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof window.Shopify === 'undefined' || !window.Shopify.designMode) {
-                var aosStylesheet = document.createElement('link');
-                aosStylesheet.rel = 'stylesheet';
-                aosStylesheet.href = "{{ 'aos-2.3.1.css' | asset_url }}";
-                document.head.appendChild(aosStylesheet);
-            }
-        });
-    </script>
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof window.Shopify === 'undefined' || !window.Shopify.designMode) {
+        var aosStylesheet = document.createElement('link');
+        aosStylesheet.rel = 'stylesheet';
+        aosStylesheet.href = "{{ 'aos-2.3.1.css' | asset_url }}";
+        document.head.appendChild(aosStylesheet);
+      }
+    });
+  </script>
+
+  {% if settings.google_ads_id %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.google_ads_id }}"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ settings.google_ads_id }}');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ settings.google_ads_id }}');
     </script>
-    
-    {{ content_for_header }}
+  {% endif %}
+
+  {{ content_for_header }}
 </head>
 <body>
+  {% if settings.google_tag_manager_id %}
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ settings.google_tag_manager_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    
+  {% endif %}
+  
+  <main id="main-content">
     {{ content_for_layout }}
-    
-    <script src="https://cdn.jsdelivr.net/gh/michalsnik/aos@2.3.1/dist/aos.js" defer></script>
-    <script src="https://player.vimeo.com/api/player.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let attempts = 0;
-            const maxAttempts = 5;
-            const interval = 1000;
-    
-            const checkAOS = setInterval(() => {
-                if (typeof AOS !== 'undefined' && AOS.init) {
-                    clearInterval(checkAOS);
-                    AOS.init({
-                        once: true, // only animate once
-                    });
-                } else {
-                    attempts++;
-                    if (attempts >= maxAttempts) {
-                        clearInterval(checkAOS);
-                        console.error('AOS is not defined after 5 attempts. Ensure the AOS script is loaded.');
-                    }
-                }
-            }, interval);
-        });
-    </script>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function loadAOS() {
+        var aosScript = document.createElement('script');
+        aosScript.src = "{{ 'aos-2.3.1.js' | asset_url }}";
+        aosScript.onload = function () {
+          console.log('AOS script loaded successfully.');
+        };
+        document.body.appendChild(aosScript);
+      }
+      function enableAOS() {
+        let attempts = 0;
+        const maxAttempts = 5;
+        const interval = 1000;
+
+        const checkAOS = setInterval(() => {
+          if (typeof AOS !== 'undefined' && AOS.init) {
+            clearInterval(checkAOS);
+            AOS.init({
+              once: true, // only animate once
+            });
+          } else {
+            attempts++;
+            if (attempts >= maxAttempts) {
+              clearInterval(checkAOS);
+              console.error('AOS is not defined after 5 attempts. Ensure the AOS script is loaded.');
+            }
+          }
+        }, interval);
+      }
+
+      // Load AOS when not in Shopify design mode
+      if (typeof window.Shopify === 'undefined' || !window.Shopify.designMode) {
+        loadAOS();
+        enableAOS();
+      }
+    });
+  </script>
+
+  <script src="https://player.vimeo.com/api/player.js" defer></script>
 </body>
 </html>
