@@ -1,0 +1,28 @@
+{% comment %}
+    Section: Celebrating
+{% endcomment %}
+
+<div class="celebrating">
+    <div class="container-limited --flex-column">
+        <div class="celebrating__content">
+            <p class="--all-caps" 
+               data-aos="fade-up"
+               data-aos-offset="-50"
+               data-aos-delay="50">{{ section.settings.celebrating_text }}</p>
+        </div>
+    </div>
+</div>
+    
+{% schema %}
+{
+  "name": "Celebrating Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "celebrating_text",
+      "label": "Celebrating Text",
+      "default": "Celebrating 15 years,<br/>one focus"
+    }
+  ]
+}
+{% endschema %}

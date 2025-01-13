@@ -1,0 +1,65 @@
+{% comment %}
+    Section: Global Header
+{% endcomment %}
+
+<header class="header">
+    <a href="{{ section.settings.header_logo_link }}" 
+       title="{{ section.settings.header_logo_title }}" 
+       target="_self"
+       data-aos="fade-in" 
+       data-aos-delay="200">
+        <img src="{{ section.settings.header_image_url | image_url: width: 84, height: 23 }}" 
+             class="header-logo"
+             height="23"
+             width="84"
+             alt="{{ section.settings.header_image_alt }}" />
+    </a>
+    <a href="{{ section.settings.shop_all_link }}" 
+       class="button button--outline" 
+       target="_self"
+       data-aos="fade-down" 
+       data-aos-delay="350">{{ section.settings.shop_all_text }}</a>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "header_image_url",
+      "label": "Header Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "header_image_alt",
+      "label": "Header Logo Alt Text",
+      "default": "ZUGU Header Logo"
+    },
+    {
+      "type": "url",
+      "id": "header_logo_link",
+      "label": "Header Logo Link",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "header_logo_title",
+      "label": "Header Logo Title",
+      "default": "Return to ZUGU Homepage"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_link",
+      "label": "Shop All Cases Link",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_text",
+      "label": "Shop All Cases Button Text",
+      "default": "Shop All Cases"
+    }
+  ]
+}
+{% endschema %}

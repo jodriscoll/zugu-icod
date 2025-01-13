@@ -5,7 +5,7 @@
 <div class="rick-roll">
   <div class="rick-roll__iframe">
     <span class="rick-roll__loading"></span>
-    <iframe src="https://player.vimeo.com/video/1038394824?{{ section.settings.icod_rr_iframe_settings }}"
+    <iframe src="https://player.vimeo.com/video/{{ section.settings.icod_rr_vimeo_id }}?{{ section.settings.icod_rr_iframe_settings }}"
             frameborder="0"
             allow="{{ section.settings.icod_rr_iframe_allow }}"
             style="{{ section.settings.icod_rr_iframe_style }}"
@@ -19,26 +19,32 @@
   "settings": [
     {
       "type": "text",
+      "id": "icod_rr_vimeo_id",
+      "label": "Vimeo Video ID",
+      "default": "1038394824"
+    },
+    {
+      "type": "text",
       "id": "icod_rr_iframe_settings",
-      "label": "Vimeo Iframe Src Settings",
+      "label": "Vimeo SRC Param Settings",
       "default": "badge=0&autopause=0&player_id=0&background=1&loop=1&app_id=58479"
     },
     {
       "type": "text",
       "id": "icod_rr_iframe_allow",
-      "label": "Vimeo Iframe Allow Attributes",
+      "label": "Iframe Allow Attributes",
       "default": "autoplay;fullscreen;picture-in-picture;clipboard-write"
     },
     {
       "type": "text",
       "id": "icod_rr_iframe_style",
-      "label": "Iframe Style",
+      "label": "Iframe Inline Styles",
       "default": "height:100vh;width:100vw;"
     },
     {
       "type": "text",
       "id": "icod_rr_video_title",
-      "label": "Video Title",
+      "label": "Iframe Title",
       "default": "Rickroll"
     }
   ],

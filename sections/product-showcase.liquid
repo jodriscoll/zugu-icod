@@ -13,6 +13,9 @@
       <p class="product-showcase__price"
          data-aos="fade-right"
          data-aos-delay="200">{{ section.settings.price }}</p>
+      <p class="product-showcase__includes"
+         data-aos="fade-right"
+         data-aos-delay="250">{{ section.settings.includes }}</p>
       <p class="product-showcase__color"
          data-aos="fade-right"
          data-aos-delay="300">{{ section.settings.color_label }} {{ section.settings.color }}</p>
@@ -20,7 +23,7 @@
            data-aos="fade-right"
            data-aos-delay="400">
         <a href="{{ section.settings.ring_guide_link }}"
-           class="product-showcase__link --all-caps"
+           class="--all-caps"
            title="{{ section.settings.ring_guide_title }}">{{ section.settings.ring_guide_text }}</a>
       </div>
       <div class="product-showcase__buttons"
@@ -62,27 +65,34 @@
            data-aos="fade-right"
            data-aos-delay="200">
         <span class="--all-caps">{{ section.settings.footnote_heading }}</span>
-        <a href="{{ section.settings.footnote_link }}"
-           class="--all-caps"
-           title="{{ section.settings.footnote_title }}">{{ section.settings.footnote_text }}</a>
+        <div class="product-showcase__footnote-links">
+            <a href="{{ section.settings.footnote_link1 }}" 
+               class="--all-caps"
+               title="{{ section.settings.footnote_title1 }}">{{ section.settings.footnote_text1 }}</a>
+            <a href="{{ section.settings.footnote_link2 }}" 
+               class="--all-caps"
+               title="{{ section.settings.footnote_title2 }}">{{ section.settings.footnote_text2 }}</a>
+        </div>
       </div>
     </div>
-    <div class="slider"
+    <div class="slider splide"
          id="js-simple-slider"
          data-aos="fade-in"
          data-aos-delay="50">
-      <div class="slider__slides">
-        {% for block in section.blocks %}
-          {% if block.type == 'product_showcase_slide' %}
-            <div class="slider__slide{% if forloop.first %} --current{% endif %}">
-              <img src="{{ block.settings.product_slide_image | image_url: width: 900, height: 900 }}"
-                   height=""
-                   width=""
-                   class="product-showcase__image"
-                   alt="{{ block.settings.slide_alt }}" />
-            </div>
-          {% endif %}
-        {% endfor %}
+      <div class="splide__track">
+        <div class="slider__slides splide__list">
+          {% for block in section.blocks %}
+            {% if block.type == 'product_showcase_slide' %}
+              <div class="slider__slide splide__slide{% if forloop.first %} is-active{% endif %}">
+                <img src="{{ block.settings.product_slide_image | image_url: width: 900, height: 900 }}"
+                     height=""
+                     width=""
+                     class="product-showcase__image"
+                     alt="{{ block.settings.slide_alt }}" />
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
       <div class="slider__arrow --left">
         <button title="{{ section.settings.slider_arrow_left_title }}">
@@ -109,10 +119,12 @@
       <div class="slider__pagination"
            data-aos="fade-up"
            data-aos-delay="150">
+        {% assign slide_count = 0 %}
         {% for block in section.blocks %}
           {% if block.type == 'product_showcase_slide' %}
-            <button class="slider__pagination-dot {% if forloop.first %}--current{% endif %}"
-                    title="{{ section.settings.slider_pagination_title }} {{ forloop.index }}"></button>
+            {% assign slide_count = slide_count | plus: 1 %}
+            <button class="slider__pagination-dot{% if slide_count == 1 %} --current{% endif %}"
+                    title="{{ section.settings.slider_pagination_title }} {{ slide_count }}"></button>
           {% endif %}
         {% endfor %}
       </div>
@@ -122,6 +134,92 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    function loadSpline() {
+        const debug = false;
+        const splineScript = document.createElement('script');
+        splineScript.src = "{{ 'splide-4.1.4.min.js' | asset_url }}";
+        splineScript.onload = function () {
+            if (debug) console.log('Splide script loaded.');
+            initializeSplide();
+        };
+        document.body.appendChild(splineScript);
+
+        const splineStylesheet = document.createElement('link');
+        splineStylesheet.rel = 'stylesheet';
+        splineStylesheet.href = "{{ 'splide-4.1.4.min.css' | asset_url }}";
+        document.head.appendChild(splineStylesheet);
+    }
+    function initializeSplide() {
+        function splideSlider(sliderId) {
+            const debug = false;
+            const sliderElement = document.getElementById(sliderId);
+
+            if (debug) console.log(`Initializing slider: ${sliderId}`, sliderElement);
+
+            if (!sliderElement) {
+                console.error(`Slider with ID "${sliderId}" not found.`);
+                return;
+            }
+
+            const leftArrow = sliderElement.querySelector('.slider__arrow.--left button');
+            const rightArrow = sliderElement.querySelector('.slider__arrow.--right button');
+            const paginationDots = Array.from(sliderElement.querySelectorAll('.slider__pagination-dot'));
+
+            if (debug) {
+                console.log('Left Arrow:', leftArrow);
+                console.log('Right Arrow:', rightArrow);
+                console.log('Pagination Dots:', paginationDots);
+            }
+
+            const splide = new Splide(sliderElement, {
+                type: 'slide',
+                perPage: 1,
+                perMove: 1,
+                gap: '20px',
+                arrows: false,
+                pagination: false,
+                drag: true,
+                keyboard: true,
+                breakpoints: {
+                    768: {
+                        perPage: 1,
+                        gap: '10px',
+                    },
+                },
+            });
+
+            leftArrow.addEventListener('click', () => {
+                if (debug) console.log('Left arrow clicked');
+                splide.go('<');
+            });
+
+            rightArrow.addEventListener('click', () => {
+                if (debug) console.log('Right arrow clicked');
+                splide.go('>');
+            });
+
+            paginationDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    if (debug) console.log(`Pagination dot ${index + 1} clicked`);
+                    splide.go(index);
+                });
+
+                splide.on('move', (current) => {
+                    if (debug) console.log(`Slider moved to index: ${current}`);
+                    paginationDots.forEach((dot, idx) => {
+                        dot.classList.toggle('--current', idx === current);
+                    });
+                });
+            });
+
+            splide.mount();
+            if (debug) console.log('Splide mounted successfully');
+        }
+
+        splideSlider('js-simple-slider');
+    }
+    loadSpline();
+
     function accordionExpand(elementId) {
       const accordion = document.getElementById(elementId);
 
@@ -147,95 +245,6 @@
       }
     }
     accordionExpand('js-accordion');
-    
-    function simpleSlider(sliderId) {
-      const slider = document.getElementById(sliderId);
-      if (!slider) return;
-
-      const slidesContainer = slider.querySelector('.slider__slides');
-      const slides = slider.querySelectorAll('.slider__slide');
-      const dots = slider.querySelectorAll('.slider__pagination-dot');
-      const leftArrow = slider.querySelector('.slider__arrow.--left button');
-      const rightArrow = slider.querySelector('.slider__arrow.--right button');
-
-      let currentIndex = 0;
-      let touchStartX = 0;
-      let touchEndX = 0;
-      let isTouching = false; // Tracks if a swipe event is in progress
-
-      function updateSlider(newIndex) {
-        // Update the transform for sliding
-        slidesContainer.style.transform = `translateX(-${newIndex * 100}%)`;
-
-        // Update active classes for slides and dots
-        slides.forEach((slide, index) => {
-          slide.classList.toggle('--current', index === newIndex);
-        });
-
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('--current', index === newIndex);
-        });
-
-        currentIndex = newIndex;
-        updateArrowState();
-      }
-
-      function updateArrowState() {
-        leftArrow.disabled = currentIndex === 0;
-        rightArrow.disabled = currentIndex === slides.length - 1;
-      }
-
-      function attachEventListeners() {
-        dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
-            if (index !== currentIndex) {
-              updateSlider(index);
-            }
-          });
-        });
-
-        leftArrow.addEventListener('click', () => {
-          if (!isTouching && currentIndex > 0) {
-            updateSlider(currentIndex - 1);
-          }
-        });
-
-        rightArrow.addEventListener('click', () => {
-          if (!isTouching && currentIndex < slides.length - 1) {
-            updateSlider(currentIndex + 1);
-          }
-        });
-
-        // Add swipe functionality
-        slider.addEventListener('touchstart', handleTouchStart, false);
-        slider.addEventListener('touchmove', handleTouchMove, false);
-        slider.addEventListener('touchend', handleTouchEnd, false);
-      }
-
-      function handleTouchStart(e) {
-        isTouching = true;
-        touchStartX = e.changedTouches[0].screenX;
-      }
-
-      function handleTouchMove(e) {
-        touchEndX = e.changedTouches[0].screenX;
-      }
-
-      function handleTouchEnd() {
-        const swipeThreshold = 50; // Minimum swipe distance to trigger a slide change
-        isTouching = false;
-
-        if (touchStartX - touchEndX > swipeThreshold && currentIndex < slides.length - 1) {
-          updateSlider(currentIndex + 1); // Swipe left to move to the next slide
-        } else if (touchEndX - touchStartX > swipeThreshold && currentIndex > 0) {
-          updateSlider(currentIndex - 1); // Swipe right to move to the previous slide
-        }
-      }
-
-      attachEventListeners();
-      updateSlider(currentIndex); // Ensure initial state is set
-    }
-    simpleSlider('js-simple-slider');
   });
 </script>
 
@@ -260,6 +269,12 @@
       "id": "price",
       "label": "Price",
       "default": "$1500.00"
+    },
+    {
+      "type": "text",
+      "id": "includes",
+      "label": "Includes",
+      "default": "(Includes iPad, Smart Ring, App, & Case)"
     },
     {
       "type": "text",
@@ -329,21 +344,39 @@
     },
     {
       "type": "url",
-      "id": "footnote_link",
-      "label": "Footnote Link",
+      "id": "footnote_link1",
+      "label": "Footnote Link 1",
       "default": "/"
     },
     {
       "type": "text",
-      "id": "footnote_text",
-      "label": "Footnote Text",
-      "default": "Explore The Upcoming 360 Case"
+      "id": "footnote_text1",
+      "label": "Footnote Link 1 Text",
+      "default": "Flagship cases $39+"
     },
     {
       "type": "text",
-      "id": "footnote_title",
-      "label": "Footnote Link Title",
-      "default": "Explore The Upcoming 360 Case"
+      "id": "footnote_title1",
+      "label": "Footnote Link 1 Title",
+      "default": "Explore Flagship cases $39+"
+    },
+    {
+      "type": "url",
+      "id": "footnote_link2",
+      "label": "Footnote Link 2",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "footnote_text2",
+      "label": "Footnote Link 2 Text",
+      "default": "New 360 cases $169+"
+    },
+    {
+      "type": "text",
+      "id": "footnote_title2",
+      "label": "Footnote Link 2 Title",
+      "default": "Explore New 360 cases $169+"
     },
     {
       "type": "text",

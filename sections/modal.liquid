@@ -1,5 +1,5 @@
 {% comment %}
-    Section: Video Modal
+    Section: Modal
 {% endcomment %}
 
 <div class="modal" id="js-modal">
@@ -9,7 +9,11 @@
             id="js-modal-close"
             title="{{ section.settings.icod_modal_close_button_title }}"></button>
   </div>
-  <!-- <div><iframe src="https://player.vimeo.com/video/{{ section.settings.icod_modal_iframe_hero_vimeo_id }}?{{ section.settings.icod_modal_iframe_hero_settings }}" frameborder="0" allow="{{ section.settings.icod_modal_iframe_hero_allow }}" title="{{ section.settings.icod_modal_iframe_hero_title }}"></iframe></div> -->
+  {% if section.settings.icod_modal_video_type == 'vimeo' %}
+    <!-- <div><iframe src="https://player.vimeo.com/video/{{ section.settings.icod_modal_iframe_hero_vimeo_id }}?{{ section.settings.icod_modal_iframe_hero_settings }}" frameborder="0" allow="{{ section.settings.icod_modal_iframe_hero_allow }}" title="{{ section.settings.icod_modal_iframe_hero_title }}"></iframe></div> -->
+  {% else %}
+    <!-- <div><iframe width="560" height="315" src="https://www.youtube.com/embed/{{ section.settings.icod_modal_iframe_hero_youtube_id }}{{ section.settings.icod_modal_iframe_hero_youtube_params }}" title="{{ section.settings.icod_modal_iframe_hero_title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div> -->
+  {% endif %}
 </div>
 
 <script>
@@ -135,27 +139,43 @@
   "name": "Modal",
   "settings": [
     {
+      "type": "select",
+      "id": "icod_modal_video_type",
+      "label": "Which Platform?",
+      "options": [
+        { "value": "vimeo", "label": "Vimeo" },
+        { "value": "youtube", "label": "YouTube" }
+      ],
+      "default": "vimeo"
+    },
+    {
       "type": "text",
       "id": "icod_modal_iframe_hero_vimeo_id",
-      "label": "Vimeo Iframe ID",
+      "label": "Vimeo Video ID",
       "default": "1041124517"
     },
     {
       "type": "text",
       "id": "icod_modal_iframe_hero_settings",
-      "label": "Iframe Src Settings",
+      "label": "Vimeo iframe Settings",
       "default": "badge=0&app_id=58479"
     },
     {
       "type": "text",
-      "id": "icod_modal_iframe_hero_allow",
-      "label": "Iframe Allow Attributes",
-      "default": "fullscreen;picture-in-picture;clipboard-write"
+      "id": "icod_modal_iframe_hero_youtube_id",
+      "label": "YouTube Video ID",
+      "default": "dQw4w9WgXcQ"
+    },
+    {
+      "type": "text",
+      "id": "icod_modal_iframe_hero_youtube_params",
+      "label": "YouTube URL Parameters",
+      "default": "?si=97uTJfrPvdwauWXf&t=48"
     },
     {
       "type": "text",
       "id": "icod_modal_iframe_hero_title",
-      "label": "Iframe Title",
+      "label": "iframe Title",
       "default": "Demonstration Video"
     },
     {
@@ -163,12 +183,6 @@
       "id": "icod_modal_close_button_title",
       "label": "Close Button Title",
       "default": "Close modal"
-    },
-    {
-      "type": "text",
-      "id": "icod_modal_video_title",
-      "label": "Video Title",
-      "default": "Demonstration Video"
     }
   ]
 }

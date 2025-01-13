@@ -3,54 +3,55 @@
 {% endcomment %}
 
 <div class="footer">
-    <div class="container-limited --flex-column">
-        <nav class="footer__links --all-caps"
-             data-aos="fade-up"
-             data-aos-delay="300"
-             data-aos-offset="-200">
-            {% for link in section.blocks %}
-                <a href="{{ link.settings.icod_footer_link_url }}"
-                   class="footer__link"
-                   title="{{ link.settings.icod_footer_link_title }}">{{ link.settings.icod_footer_link_text }}</a>
-            {% endfor %}
-        </nav>
-    </div>
+  <div class="container-limited --flex-column">
+    <nav class="footer__links --all-caps"
+         data-aos="fade-up"
+         data-aos-delay="300"
+         data-aos-offset="-200">
+      {% for link in section.blocks %}
+        <a href="{{ link.settings.icod_footer_link_url }}"
+           class="footer__link"
+           target="_self"
+           title="{{ link.settings.icod_footer_link_title }}">{{ link.settings.icod_footer_link_text }}</a>
+      {% endfor %}
+    </nav>
+  </div>
 </div>
 
 {% schema %}
 {
-    "name": "Global Footer",
-    "settings": [],
-    "blocks": [
+  "name": "Global Footer",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "footer_link",
+      "name": "Footer Link",
+      "settings": [
         {
-            "type": "footer_link",
-            "name": "Footer Link",
-            "settings": [
-                {
-                    "type": "url",
-                    "id": "icod_footer_link_url",
-                    "label": "Link URL",
-                    "default": "/"
-                },
-                {
-                    "type": "text",
-                    "id": "icod_footer_link_title",
-                    "label": "Link Title",
-                    "default": "Link Title"
-                },
-                {
-                    "type": "text",
-                    "id": "icod_footer_link_text",
-                    "label": "Link Text",
-                    "default": "Link Text"
-                }
-            ]
-        }
-    ],
-    "presets": [
+          "type": "url",
+          "id": "icod_footer_link_url",
+          "label": "Link URL",
+          "default": "/"
+        },
         {
-            "name": "Default"
+          "type": "text",
+          "id": "icod_footer_link_title",
+          "label": "Link Title",
+          "default": "Link Title"
+        },
+        {
+          "type": "text",
+          "id": "icod_footer_link_text",
+          "label": "Link Text",
+          "default": "Link Text"
         }
-    ]
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default"
+    }
+  ]
 }
 {% endschema %}

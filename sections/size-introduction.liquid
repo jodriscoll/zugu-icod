@@ -21,11 +21,15 @@
   </div>
   <div class="container-limited">
     <div class="sizes-introduction__content">
-      <div data-aos="fade-right"
+      <div class="back-button"
+           data-aos="fade-right" 
            data-aos-delay="50">
-        <a href="{{ section.settings.icod_size_back_link }}"
-           class="sizes-introduction__back-button --all-caps"
-           title="{{ section.settings.icod_size_back_title }}">{{ section.settings.icod_size_back_text }}</a>
+        <div class="back-button__container">
+          <a href="{{ section.settings.icod_back_link }}" 
+             class="back-button__button --all-caps"
+             target="_self"
+             title="{{ section.settings.icod_back_title }}">{{ section.settings.icod_back_text }}</a>
+        </div>
       </div>
       <h1 class="--all-caps"
           data-aos="fade-right"
@@ -72,19 +76,19 @@
     },
     {
       "type": "url",
-      "id": "icod_size_back_link",
+      "id": "icod_back_link",
       "label": "Back Link",
       "default": "/"
     },
     {
       "type": "text",
-      "id": "icod_size_back_title",
+      "id": "icod_back_title",
       "label": "Back Button Title",
       "default": "Go back home"
     },
     {
       "type": "text",
-      "id": "icod_size_back_text",
+      "id": "icod_back_text",
       "label": "Back Button Text",
       "default": "Back"
     },

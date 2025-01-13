@@ -17,9 +17,11 @@
           <div class="about-case__feature-content">
             <h3 class="--all-caps"
                 data-aos="fade-right"
+                data-aos-offset="-50"
                 data-aos-delay="100">{{ feature.settings.feature_heading }}</h3>
             <p data-aos="fade-right"
-               data-aos-delay="250">{{ feature.settings.feature_text }}</p>
+               data-aos-offset="-50"
+               data-aos-delay="150">{{ feature.settings.feature_text }}</p>
           </div>
           <img src="{{ feature.settings.feature_image | image_url: width: 800, height: 476 }}"
                height=""
@@ -27,8 +29,8 @@
                class="about-case__feature-image"
                alt="{{ feature.settings.image_alt }}"
                data-aos="fade-left"
-               data-aos-offset="225"
-               data-aos-delay="300" />
+               data-aos-offset="-200"
+               data-aos-delay="200" />
         </div>
       {% endfor %}
     </div>
@@ -49,9 +51,14 @@
            data-aos="fade-up"
            data-aos-delay="500">
         <span class="--all-caps">{{ section.settings.footnote_heading }}</span>
-        <a href="{{ section.settings.footnote_link }}"
-           class="--all-caps"
-           title="{{ section.settings.footnote_title }}">{{ section.settings.footnote_text }}</a>
+        <div class="product-showcase__footnote-links">
+            <a href="{{ section.settings.footnote_link1 }}" 
+               class="--all-caps"
+               title="{{ section.settings.footnote_title1 }}">{{ section.settings.footnote_text1 }}</a>
+            <a href="{{ section.settings.footnote_link2 }}" 
+               class="--all-caps"
+               title="{{ section.settings.footnote_title2 }}">{{ section.settings.footnote_text2 }}</a>
+        </div>
       </div>
     </div>
   </div>
@@ -105,21 +112,39 @@
     },
     {
       "type": "url",
-      "id": "footnote_link",
-      "label": "Footnote Link",
+      "id": "footnote_link1",
+      "label": "Footnote Link 1",
       "default": "/"
     },
     {
       "type": "text",
-      "id": "footnote_text",
-      "label": "Footnote Text",
-      "default": "Get notified about our upcoming 360 case"
+      "id": "footnote_text1",
+      "label": "Footnote Link 1 Text",
+      "default": "Flagship cases $39+"
     },
     {
       "type": "text",
-      "id": "footnote_title",
-      "label": "Footnote Link Title",
-      "default": "Explore THE UPCOMING 360 Case"
+      "id": "footnote_title1",
+      "label": "Footnote Link 1 Title",
+      "default": "Explore Flagship cases $39+"
+    },
+    {
+      "type": "url",
+      "id": "footnote_link2",
+      "label": "Footnote Link 2",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "footnote_text2",
+      "label": "Footnote Link 2 Text",
+      "default": "New 360 cases $169+"
+    },
+    {
+      "type": "text",
+      "id": "footnote_title2",
+      "label": "Footnote Link 2 Title",
+      "default": "Explore New 360 cases $169+"
     }
   ],
   "blocks": [

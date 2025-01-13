@@ -1,0 +1,42 @@
+{% comment %}
+    Section: Back Button
+{% endcomment %}
+
+<div class="container-limited --back-button">
+  <div class="back-button"
+       data-aos="fade-right" 
+       data-aos-delay="50">
+    <div class="back-button__container">
+      <a href="{{ section.settings.icod_back_link }}" 
+         class="back-button__button --all-caps"
+         target="_self"
+         title="{{ section.settings.icod_back_title }}">{{ section.settings.icod_back_text }}</a>
+    </div>
+  </div>
+</div>
+        
+{% schema %}
+  {
+    "name": "Back Button",
+    "settings": [
+      {
+        "type": "url",
+        "id": "icod_back_link",
+        "label": "Back Link",
+        "default": "/"
+      },
+      {
+        "type": "text",
+        "id": "icod_back_title",
+        "label": "Back Button Title",
+        "default": "Go back Home"
+      },
+      {
+        "type": "text",
+        "id": "icod_back_text",
+        "label": "Back Button Text",
+        "default": "Back"
+      }
+    ]
+  }
+{% endschema %}
