@@ -31,4 +31,4 @@ Configuring a local development workflow is easy with [`shopify-cli`](https://sh
 5. If you're happy with your changes locally, you can execute `shopify theme push`
     - **Note:* You should test the theme codebase by executing `shopify theme check` and resolving any errors before pushing
 
-If you're working with a theme that isn't the active theme for the Shopify site, you can execute `shopify theme publish` to make it the active theme
+If you're working with a theme that isn't the active theme for the Shopify site, you can execute `shopify theme publish` to make it the active theme.
